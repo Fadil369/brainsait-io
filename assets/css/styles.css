@@ -2088,4 +2088,578 @@ a:focus {
 
 .modal-close:hover {
     color: var(--text-primary);
+}}
+
+/* Partnership Ecosystem Styles */
+.partnerships {
+    padding: var(--spacing-20) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.vision-banner {
+    background: linear-gradient(135deg, #1a5f3f 0%, #2d7d32 100%);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-6);
+    margin-bottom: var(--spacing-12);
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.vision-icon {
+    font-size: var(--font-size-3xl);
+}
+
+.vision-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.vision-text strong {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
+
+.vision-text span {
+    font-size: var(--font-size-base);
+    opacity: 0.9;
+}
+
+.subsection-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-8);
+    text-align: center;
+}
+
+.partnership-types {
+    margin-bottom: var(--spacing-16);
+}
+
+.partnership-category {
+    margin-bottom: var(--spacing-12);
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-8);
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.category-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-3);
+}
+
+.category-range {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.partnership-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+}
+
+.tier-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-6);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.tier-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.tier-card.featured {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+    transform: scale(1.02);
+}
+
+.tier-card.premium {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, #fffbf0 0%, #fff4e6 100%);
+}
+
+.tier-badge {
+    position: absolute;
+    top: -12px;
+    right: var(--spacing-4);
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.tier-badge.premium {
+    background: var(--accent-color);
+}
+
+.tier-header {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.tier-header h5 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3);
+}
+
+.tier-investment {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.tier-benefits {
+    margin-bottom: var(--spacing-6);
+}
+
+.benefit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.benefit-item:last-child {
+    border-bottom: none;
+}
+
+.benefit-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.benefit-value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.flexible-payment-options {
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+}
+
+.flexible-payment-options h6 {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.payment-option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-3);
+}
+
+.payment-option-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-3);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.payment-option-item:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.option-type {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-1);
+}
+
+.option-price {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    margin-bottom: var(--spacing-1);
+}
+
+.option-discount {
+    font-size: var(--font-size-xs);
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.option-period {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.partnership-btn {
+    width: 100%;
+    padding: var(--spacing-4);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+}
+
+.flexible-pricing-showcase {
+    margin-top: var(--spacing-6);
+}
+
+.flexible-pricing-showcase h5 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-6);
+}
+
+.pricing-structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+
+.pricing-structure-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-5);
+    text-align: center;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.pricing-structure-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.pricing-structure-card.featured {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+}
+
+.card-badge {
+    position: absolute;
+    top: -10px;
+    right: var(--spacing-3);
+    background: var(--secondary-color);
+    color: white;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+.pricing-structure-card h6 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3);
+}
+
+.structure-price {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-2);
+}
+
+.structure-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-4);
+}
+
+.pricing-calc-btn {
+    width: 100%;
+    padding: var(--spacing-3);
+}
+
+.research-packages {
+    margin-top: var(--spacing-8);
+}
+
+.research-packages h5 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-6);
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-4);
+}
+
+.package-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-5);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.package-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.package-card h6 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.package-pricing {
+    margin-bottom: var(--spacing-5);
+}
+
+.pricing-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1);
+    margin-bottom: var(--spacing-2);
+}
+
+.pricing-option .price {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.pricing-option .period {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+}
+
+.pricing-or {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin: var(--spacing-2) 0;
+}
+
+/* Pricing Calculator Styles */
+.pricing-calculator-section {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-8);
+    box-shadow: var(--shadow-lg);
+    margin-top: var(--spacing-12);
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-6);
+}
+
+.calculator-controls {
+    display: grid;
+    gap: var(--spacing-4);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.control-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+}
+
+.calculator-select,
+.calculator-input {
+    padding: var(--spacing-3);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+}
+
+.calculator-select:focus,
+.calculator-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.calculator-results {
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-6);
+}
+
+.result-display {
+    margin-bottom: var(--spacing-6);
+}
+
+.result-display > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.result-display > div:last-child {
+    border-bottom: none;
+}
+
+.result-display .label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.result-display .value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.total-price .value {
+    font-size: var(--font-size-xl);
+    color: var(--accent-color);
+}
+
+.savings-indicator .value {
+    color: var(--secondary-color);
+}
+
+.roi-estimation {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+}
+
+.roi-estimation h5 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.roi-display {
+    display: grid;
+    gap: var(--spacing-3);
+}
+
+.roi-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roi-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.roi-value {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.calculator-proceed-btn {
+    width: 100%;
+    padding: var(--spacing-4);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+/* Responsive Design for Partnerships */
+@media (max-width: 768px) {
+    .partnership-tiers {
+        grid-template-columns: 1fr;
+    }
+    
+    .tier-card.featured {
+        transform: none;
+    }
+    
+    .payment-option-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-structure-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+    }
+    
+    .vision-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .vision-icon {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .partnerships {
+        padding: var(--spacing-12) 0;
+    }
+    
+    .partnership-category {
+        padding: var(--spacing-4);
+    }
+    
+    .tier-card {
+        padding: var(--spacing-4);
+    }
+    
+    .subsection-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .category-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .pricing-calculator-section {
+        padding: var(--spacing-4);
+    }
 }
