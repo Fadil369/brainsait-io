@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Diagnosis System - Advanced AI-powered diagnostic tools for accurate medical assessments in Saudi Arabia">
+    <meta name="keywords" content="AI diagnosis, medical AI, healthcare technology, diagnostic tools, Saudi Arabia, BrainSAIT">
+    <title>AI Diagnosis System - BrainSAIT Healthcare Technology</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/styles.css" as="style">
+    <link rel="preload" href="./assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <!-- RTL Support -->
+    <link rel="stylesheet" href="./assets/css/rtl.css" id="rtl-styles" disabled>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Diagnosis System - BrainSAIT Healthcare Technology">
+    <meta property="og:description" content="Advanced AI-powered diagnostic tools for accurate medical assessments">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brainsait.io/ai-diagnosis">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="nav-brand">
+                    <a href="index.html" class="logo-link" aria-label="BrainSAIT Home">
+                        <img src="./assets/images/logo.svg" alt="BrainSAIT Logo" class="logo">
+                        <span class="logo-text">BrainSAIT</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list" role="menubar">
+                        <li class="nav-item" role="none">
+                            <a href="index.html" class="nav-link" role="menuitem" data-en="Home" data-ar="الرئيسية">Home</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="index.html#about" class="nav-link" role="menuitem" data-en="About" data-ar="عن الشركة">About</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="index.html#products" class="nav-link" role="menuitem" data-en="Products" data-ar="المنتجات">Products</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="index.html#store" class="nav-link" role="menuitem" data-en="Store" data-ar="المتجر">Store</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="index.html#contact" class="nav-link" role="menuitem" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                        </li>
+                        <li class="nav-item founder-nav" role="none">
+                            <a href="https://thefadil.site/" target="_blank" rel="noopener noreferrer" class="nav-link founder-link" role="menuitem" data-en="TheFounder" data-ar="المؤسس" aria-label="Visit founder's profile">
+                                <span class="founder-icon">👨‍💼</span>
+                                <span class="founder-text">TheFounder</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Language Toggle -->
+                    <div class="language-toggle">
+                        <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+                        <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">عر</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Product Hero Section -->
+        <section class="product-hero" aria-labelledby="product-hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="product-badge" data-en="AI-Powered Solution" data-ar="حل مدعوم بالذكاء الاصطناعي">
+                        AI-Powered Solution
+                    </div>
+                    <h1 id="product-hero-title" class="hero-title" data-en="AI Diagnosis System" data-ar="نظام التشخيص الذكي">
+                        AI Diagnosis System
+                    </h1>
+                    <p class="hero-subtitle" data-en="Transform medical diagnostics with advanced AI algorithms that deliver accurate, rapid assessments and improve patient outcomes" data-ar="تحويل التشخيص الطبي بخوارزميات ذكية متقدمة تقدم تقييمات دقيقة وسريعة وتحسن نتائج المرضى">
+                        Transform medical diagnostics with advanced AI algorithms that deliver accurate, rapid assessments and improve patient outcomes
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label" data-en="Accuracy Rate" data-ar="معدل الدقة">Accuracy Rate</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50%</span>
+                            <span class="stat-label" data-en="Faster Diagnosis" data-ar="تشخيص أسرع">Faster Diagnosis</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label" data-en="Availability" data-ar="التوفر">Availability</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">
+                            Start Free Trial
+                        </button>
+                        <button class="btn btn-secondary" data-en="Watch Demo" data-ar="شاهد العرض التوضيحي">
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/images/product-ai-diagnosis.jpg" alt="AI Diagnosis System Interface" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="features-section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title" data-en="Key Features" data-ar="الميزات الرئيسية">
+                    Key Features
+                </h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3 data-en="Deep Learning Analysis" data-ar="تحليل التعلم العميق">Deep Learning Analysis</h3>
+                        <p data-en="Advanced neural networks trained on millions of medical cases for precise diagnostic recommendations" data-ar="شبكات عصبية متقدمة مدربة على ملايين الحالات الطبية لتوصيات تشخيصية دقيقة">
+                            Advanced neural networks trained on millions of medical cases for precise diagnostic recommendations
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-en="Real-Time Processing" data-ar="المعالجة في الوقت الفعلي">Real-Time Processing</h3>
+                        <p data-en="Instant analysis of medical imaging and lab results with immediate diagnostic insights" data-ar="تحليل فوري للتصوير الطبي ونتائج المختبر مع رؤى تشخيصية فورية">
+                            Instant analysis of medical imaging and lab results with immediate diagnostic insights
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 data-en="HIPAA Compliant" data-ar="متوافق مع HIPAA">HIPAA Compliant</h3>
+                        <p data-en="Enterprise-grade security ensuring patient data privacy and regulatory compliance" data-ar="أمان على مستوى المؤسسات يضمن خصوصية بيانات المرضى والامتثال التنظيمي">
+                            Enterprise-grade security ensuring patient data privacy and regulatory compliance
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 data-en="Comprehensive Reports" data-ar="تقارير شاملة">Comprehensive Reports</h3>
+                        <p data-en="Detailed diagnostic reports with confidence scores and treatment recommendations" data-ar="تقارير تشخيصية مفصلة مع درجات الثقة وتوصيات العلاج">
+                            Detailed diagnostic reports with confidence scores and treatment recommendations
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3 data-en="Multi-Language Support" data-ar="دعم متعدد اللغات">Multi-Language Support</h3>
+                        <p data-en="Available in Arabic and English with localized medical terminology" data-ar="متوفر باللغتين العربية والإنجليزية مع المصطلحات الطبية المحلية">
+                            Available in Arabic and English with localized medical terminology
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 data-en="Easy Integration" data-ar="تكامل سهل">Easy Integration</h3>
+                        <p data-en="Seamless integration with existing hospital management systems and EMR platforms" data-ar="تكامل سلس مع أنظمة إدارة المستشفيات الحالية ومنصات السجلات الطبية الإلكترونية">
+                            Seamless integration with existing hospital management systems and EMR platforms
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section" aria-labelledby="benefits-title">
+            <div class="container">
+                <div class="benefits-content">
+                    <div class="benefits-text">
+                        <h2 id="benefits-title" class="section-title" data-en="Why Choose Our AI Diagnosis System?" data-ar="لماذا تختار نظام التشخيص الذكي الخاص بنا؟">
+                            Why Choose Our AI Diagnosis System?
+                        </h2>
+                        <div class="benefit-list">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <div class="benefit-content">
+                                    <h3 data-en="Improved Accuracy" data-ar="دقة محسنة">Improved Accuracy</h3>
+                                    <p data-en="Reduce diagnostic errors by up to 40% with AI-powered analysis" data-ar="تقليل أخطاء التشخيص بنسبة تصل إلى 40% مع التحليل المدعوم بالذكاء الاصطناعي">
+                                        Reduce diagnostic errors by up to 40% with AI-powered analysis
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <div class="benefit-content">
+                                    <h3 data-en="Cost Efficiency" data-ar="كفاءة التكلفة">Cost Efficiency</h3>
+                                    <p data-en="Save up to 30% on diagnostic costs while improving patient care quality" data-ar="توفير يصل إلى 30% من تكاليف التشخيص مع تحسين جودة رعاية المرضى">
+                                        Save up to 30% on diagnostic costs while improving patient care quality
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <div class="benefit-content">
+                                    <h3 data-en="Faster Results" data-ar="نتائج أسرع">Faster Results</h3>
+                                    <p data-en="Deliver diagnosis results 3x faster than traditional methods" data-ar="تقديم نتائج التشخيص أسرع بـ 3 مرات من الطرق التقليدية">
+                                        Deliver diagnosis results 3x faster than traditional methods
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefits-image">
+                        <img src="./assets/images/ai-diagnosis-benefits.jpg" alt="AI Diagnosis Benefits" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="product-pricing" aria-labelledby="pricing-title">
+            <div class="container">
+                <h2 id="pricing-title" class="section-title" data-en="AI Diagnosis System Pricing" data-ar="أسعار نظام التشخيص الذكي">
+                    AI Diagnosis System Pricing
+                </h2>
+                
+                <!-- Billing Toggle -->
+                <div class="billing-toggle">
+                    <label class="toggle-label">
+                        <span data-en="Monthly" data-ar="شهري">Monthly</span>
+                        <input type="checkbox" id="billing-period" class="billing-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span data-en="Annual" data-ar="سنوي">Annual</span>
+                        <span class="discount-badge" data-en="Save 30%" data-ar="وفر 30%">Save 30%</span>
+                    </label>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 data-en="Starter" data-ar="المبتدئ">Starter</h3>
+                        <div class="price">
+                            <div class="price-display">
+                                <span class="currency">SAR</span>
+                                <span class="amount monthly-price">899</span>
+                                <span class="amount annual-price hidden">6,299</span>
+                                <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                            </div>
+                            <div class="price-savings annual-savings hidden">
+                                <span class="original-price">SAR 10,788</span>
+                                <span class="save-amount" data-en="Save SAR 4,489" data-ar="وفر 4,489 ريال">Save SAR 4,489</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Up to 100 diagnoses/month" data-ar="حتى 100 تشخيص/شهر">Up to 100 diagnoses/month</li>
+                            <li data-en="Basic AI models" data-ar="نماذج ذكاء اصطناعي أساسية">Basic AI models</li>
+                            <li data-en="Email support" data-ar="دعم عبر البريد الإلكتروني">Email support</li>
+                            <li data-en="Standard reports" data-ar="تقارير قياسية">Standard reports</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="ai-starter" data-monthly-price="899" data-annual-price="6299" data-en="Get Started" data-ar="ابدأ الآن">
+                            Get Started
+                        </button>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="popular-badge" data-en="Most Popular" data-ar="الأكثر شعبية">Most Popular</div>
+                        <h3 data-en="Professional" data-ar="المهني">Professional</h3>
+                        <div class="price">
+                            <div class="price-display">
+                                <span class="currency">SAR</span>
+                                <span class="amount monthly-price">1,799</span>
+                                <span class="amount annual-price hidden">12,599</span>
+                                <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                            </div>
+                            <div class="price-savings annual-savings hidden">
+                                <span class="original-price">SAR 21,588</span>
+                                <span class="save-amount" data-en="Save SAR 8,989" data-ar="وفر 8,989 ريال">Save SAR 8,989</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Up to 500 diagnoses/month" data-ar="حتى 500 تشخيص/شهر">Up to 500 diagnoses/month</li>
+                            <li data-en="Advanced AI models" data-ar="نماذج ذكاء اصطناعي متقدمة">Advanced AI models</li>
+                            <li data-en="24/7 support" data-ar="دعم على مدار الساعة">24/7 support</li>
+                            <li data-en="Custom reports" data-ar="تقارير مخصصة">Custom reports</li>
+                            <li data-en="API access" data-ar="الوصول للواجهة البرمجية">API access</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="ai-professional" data-monthly-price="1799" data-annual-price="12599" data-en="Get Started" data-ar="ابدأ الآن">
+                            Get Started
+                        </button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3 data-en="Enterprise" data-ar="المؤسسة">Enterprise</h3>
+                        <div class="price">
+                            <div class="price-display">
+                                <span class="currency">SAR</span>
+                                <span class="amount monthly-price">3,599</span>
+                                <span class="amount annual-price hidden">25,199</span>
+                                <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                            </div>
+                            <div class="price-savings annual-savings hidden">
+                                <span class="original-price">SAR 43,188</span>
+                                <span class="save-amount" data-en="Save SAR 17,989" data-ar="وفر 17,989 ريال">Save SAR 17,989</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Unlimited diagnoses" data-ar="تشخيصات غير محدودة">Unlimited diagnoses</li>
+                            <li data-en="Premium AI models" data-ar="نماذج ذكاء اصطناعي متميزة">Premium AI models</li>
+                            <li data-en="Dedicated support" data-ar="دعم مخصص">Dedicated support</li>
+                            <li data-en="White-label solution" data-ar="حل بعلامة تجارية مخصصة">White-label solution</li>
+                            <li data-en="Custom integrations" data-ar="تكاملات مخصصة">Custom integrations</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="ai-enterprise" data-monthly-price="3599" data-annual-price="25199" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 data-en="Ready to Transform Your Diagnostic Process?" data-ar="هل أنت مستعد لتحويل عملية التشخيص الخاصة بك؟">
+                        Ready to Transform Your Diagnostic Process?
+                    </h2>
+                    <p data-en="Join thousands of healthcare professionals who trust BrainSAIT's AI Diagnosis System for accurate, fast, and reliable medical diagnostics." data-ar="انضم إلى آلاف المتخصصين في الرعاية الصحية الذين يثقون في نظام التشخيص الذكي من برين سايت للتشخيص الطبي الدقيق والسريع والموثوق.">
+                        Join thousands of healthcare professionals who trust BrainSAIT's AI Diagnosis System for accurate, fast, and reliable medical diagnostics.
+                    </p>
+                    <div class="cta-actions">
+                        <button class="btn btn-primary btn-large" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">
+                            Start Free Trial
+                        </button>
+                        <a href="index.html#contact" class="btn btn-secondary btn-large" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BrainSAIT</h3>
+                    <p data-en="Transforming healthcare through innovative technology solutions." data-ar="تحويل الرعاية الصحية من خلال حلول تكنولوجية مبتكرة.">
+                        Transforming healthcare through innovative technology solutions.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Products" data-ar="المنتجات">Products</h4>
+                    <ul>
+                        <li><a href="ai-diagnosis.html" data-en="AI Diagnosis" data-ar="التشخيص الذكي">AI Diagnosis</a></li>
+                        <li><a href="patient-portal.html" data-en="Patient Portal" data-ar="بوابة المرضى">Patient Portal</a></li>
+                        <li><a href="healthcare-analytics.html" data-en="Healthcare Analytics" data-ar="تحليلات الرعاية الصحية">Healthcare Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ar="الدعم">Support</h4>
+                    <ul>
+                        <li><a href="index.html#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                        <li><a href="#" data-en="Help Center" data-ar="مركز المساعدة">Help Center</a></li>
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BrainSAIT. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal" role="dialog" aria-labelledby="payment-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="payment-modal-title" data-en="Choose Payment Method" data-ar="اختر طريقة الدفع">Choose Payment Method</h3>
+                <button class="modal-close" aria-label="Close payment modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-options">
+                    <button class="payment-option" data-method="stripe">
+                        <img src="./assets/images/stripe-logo.svg" alt="Stripe">
+                        <span data-en="Pay with Stripe" data-ar="ادفع باستخدام سترايب">Pay with Stripe</span>
+                    </button>
+                    <button class="payment-option" data-method="paypal">
+                        <img src="./assets/images/paypal-logo.svg" alt="PayPal">
+                        <span data-en="Pay with PayPal" data-ar="ادفع باستخدام بايبال">Pay with PayPal</span>
+                    </button>
+                </div>
+                <div class="selected-plan-info">
+                    <h4 data-en="Selected Plan:" data-ar="الخطة المختارة:">Selected Plan:</h4>
+                    <div class="plan-details">
+                        <span class="plan-name"></span>
+                        <span class="plan-price"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner" aria-label="Loading"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

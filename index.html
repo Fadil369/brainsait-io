@@ -70,6 +70,12 @@
                         <li class="nav-item" role="none">
                             <a href="#contact" class="nav-link" role="menuitem" data-en="Contact" data-ar="اتصل بنا">Contact</a>
                         </li>
+                        <li class="nav-item founder-nav" role="none">
+                            <a href="https://thefadil.site/" target="_blank" rel="noopener noreferrer" class="nav-link founder-link" role="menuitem" data-en="TheFounder" data-ar="المؤسس" aria-label="Visit founder's profile">
+                                <span class="founder-icon">👨‍💼</span>
+                                <span class="founder-text">TheFounder</span>
+                            </a>
+                        </li>
                     </ul>
                     
                     <!-- Language Toggle -->
@@ -158,7 +164,7 @@
                             <p data-en="Advanced AI-powered diagnostic tools for accurate medical assessments" data-ar="أدوات تشخيصية متقدمة مدعومة بالذكاء الاصطناعي للتقييمات الطبية الدقيقة">
                                 Advanced AI-powered diagnostic tools for accurate medical assessments
                             </p>
-                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                            <a href="ai-diagnosis.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
                         </div>
                     </div>
                     
@@ -171,7 +177,7 @@
                             <p data-en="Comprehensive patient management and communication platform" data-ar="منصة شاملة لإدارة المرضى والتواصل">
                                 Comprehensive patient management and communication platform
                             </p>
-                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                            <a href="patient-portal.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
                         </div>
                     </div>
                     
@@ -184,7 +190,7 @@
                             <p data-en="Data visualization and insights for healthcare decision making" data-ar="تصور البيانات والرؤى لاتخاذ قرارات الرعاية الصحية">
                                 Data visualization and insights for healthcare decision making
                             </p>
-                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                            <a href="healthcare-analytics.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -197,14 +203,45 @@
                 <h2 id="store-title" class="section-title" data-en="Healthcare Solutions Store" data-ar="متجر حلول الرعاية الصحية">
                     Healthcare Solutions Store
                 </h2>
+                
+                <!-- Promotional Banner -->
+                <div class="promo-banner">
+                    <div class="promo-content">
+                        <span class="promo-icon">🎉</span>
+                        <div class="promo-text">
+                            <strong data-en="Limited Time Offer!" data-ar="عرض لفترة محدودة!">Limited Time Offer!</strong>
+                            <span data-en="Save up to 30% on annual plans - Valid until December 31st" data-ar="وفر حتى 30% على الخطط السنوية - ساري حتى 31 ديسمبر">Save up to 30% on annual plans - Valid until December 31st</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Billing Toggle -->
+                <div class="billing-toggle">
+                    <label class="toggle-label">
+                        <span data-en="Monthly" data-ar="شهري">Monthly</span>
+                        <input type="checkbox" id="billing-period" class="billing-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span data-en="Annual" data-ar="سنوي">Annual</span>
+                        <span class="discount-badge" data-en="Save 30%" data-ar="وفر 30%">Save 30%</span>
+                    </label>
+                </div>
+                
                 <div class="store-grid">
                     <div class="store-item">
                         <div class="store-item-header">
                             <h3 data-en="Basic Plan" data-ar="الخطة الأساسية">Basic Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">299</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">299</span>
+                                    <span class="amount annual-price hidden">2,099</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 3,588</span>
+                                    <span class="save-amount" data-en="Save SAR 1,489" data-ar="وفر 1,489 ريال">Save SAR 1,489</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -213,7 +250,7 @@
                             <li data-en="Email support" data-ar="دعم عبر البريد الإلكتروني">Email support</li>
                             <li data-en="Mobile app access" data-ar="الوصول لتطبيق الهاتف">Mobile app access</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="basic" data-en="Choose Plan" data-ar="اختر الخطة">
+                        <button class="btn btn-primary purchase-btn" data-plan="basic" data-monthly-price="299" data-annual-price="2099" data-en="Choose Plan" data-ar="اختر الخطة">
                             Choose Plan
                         </button>
                     </div>
@@ -223,9 +260,17 @@
                         <div class="store-item-header">
                             <h3 data-en="Professional Plan" data-ar="الخطة المهنية">Professional Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">599</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">599</span>
+                                    <span class="amount annual-price hidden">4,199</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 7,188</span>
+                                    <span class="save-amount" data-en="Save SAR 2,989" data-ar="وفر 2,989 ريال">Save SAR 2,989</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -235,7 +280,7 @@
                             <li data-en="API access" data-ar="الوصول للواجهة البرمجية">API access</li>
                             <li data-en="Custom integrations" data-ar="تكاملات مخصصة">Custom integrations</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="professional" data-en="Choose Plan" data-ar="اختر الخطة">
+                        <button class="btn btn-primary purchase-btn" data-plan="professional" data-monthly-price="599" data-annual-price="4199" data-en="Choose Plan" data-ar="اختر الخطة">
                             Choose Plan
                         </button>
                     </div>
@@ -244,9 +289,17 @@
                         <div class="store-item-header">
                             <h3 data-en="Enterprise Plan" data-ar="خطة المؤسسات">Enterprise Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">1299</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">1299</span>
+                                    <span class="amount annual-price hidden">9,099</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 15,588</span>
+                                    <span class="save-amount" data-en="Save SAR 6,489" data-ar="وفر 6,489 ريال">Save SAR 6,489</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -256,7 +309,7 @@
                             <li data-en="White-label solution" data-ar="حلول بعلامة تجارية مخصصة">White-label solution</li>
                             <li data-en="Custom development" data-ar="تطوير مخصص">Custom development</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="enterprise" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
+                        <button class="btn btn-primary purchase-btn" data-plan="enterprise" data-monthly-price="1299" data-annual-price="9099" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
                             Contact Sales
                         </button>
                     </div>
@@ -365,16 +418,6 @@
                 <button class="modal-close" aria-label="Close payment modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="payment-options">
-                    <button class="payment-option" data-method="stripe">
-                        <img src="./assets/images/stripe-logo.svg" alt="Stripe">
-                        <span data-en="Pay with Stripe" data-ar="ادفع باستخدام سترايب">Pay with Stripe</span>
-                    </button>
-                    <button class="payment-option" data-method="paypal">
-                        <img src="./assets/images/paypal-logo.svg" alt="PayPal">
-                        <span data-en="Pay with PayPal" data-ar="ادفع باستخدام بايبال">Pay with PayPal</span>
-                    </button>
-                </div>
                 <div class="selected-plan-info">
                     <h4 data-en="Selected Plan:" data-ar="الخطة المختارة:">Selected Plan:</h4>
                     <div class="plan-details">
@@ -382,6 +425,119 @@
                         <span class="plan-price"></span>
                     </div>
                 </div>
+                
+                <div class="payment-methods">
+                    <h4 data-en="International Payment Methods" data-ar="طرق الدفع الدولية">International Payment Methods</h4>
+                    <div class="payment-options">
+                        <button class="payment-option" data-method="stripe">
+                            <img src="./assets/images/stripe-logo.svg" alt="Stripe">
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="Credit/Debit Card" data-ar="بطاقة ائتمان/خصم">Credit/Debit Card</span>
+                                <span class="payment-desc" data-en="Visa, Mastercard, American Express" data-ar="فيزا، ماستركارد، أمريكان إكسبريس">Visa, Mastercard, American Express</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="paypal">
+                            <img src="./assets/images/paypal-logo.svg" alt="PayPal">
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="PayPal" data-ar="بايبال">PayPal</span>
+                                <span class="payment-desc" data-en="Pay with your PayPal account" data-ar="ادفع باستخدام حساب بايبال">Pay with your PayPal account</span>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <h4 data-en="Local Payment Methods (Saudi Arabia)" data-ar="طرق الدفع المحلية (المملكة العربية السعودية)">Local Payment Methods (Saudi Arabia)</h4>
+                    <div class="payment-options">
+                        <button class="payment-option" data-method="mada">
+                            <div class="payment-logo mada-logo">مدى</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="mada Card" data-ar="بطاقة مدى">mada Card</span>
+                                <span class="payment-desc" data-en="Saudi national debit card" data-ar="بطاقة الخصم الوطنية السعودية">Saudi national debit card</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="stcpay">
+                            <div class="payment-logo stc-logo">STC Pay</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="STC Pay" data-ar="STC Pay">STC Pay</span>
+                                <span class="payment-desc" data-en="Digital wallet solution" data-ar="حل المحفظة الرقمية">Digital wallet solution</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="sadad">
+                            <div class="payment-logo sadad-logo">SADAD</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="SADAD" data-ar="سداد">SADAD</span>
+                                <span class="payment-desc" data-en="Electronic bill payment" data-ar="دفع الفواتير الإلكترونية">Electronic bill payment</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="bank-transfer">
+                            <div class="payment-logo bank-logo">🏦</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="Bank Transfer" data-ar="تحويل بنكي">Bank Transfer</span>
+                                <span class="payment-desc" data-en="Direct bank transfer" data-ar="تحويل بنكي مباشر">Direct bank transfer</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe Payment Form Modal -->
+    <div id="stripe-payment-modal" class="modal" role="dialog" aria-labelledby="stripe-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="stripe-modal-title" data-en="Enter Payment Details" data-ar="أدخل تفاصيل الدفع">Enter Payment Details</h3>
+                <button class="modal-close" aria-label="Close payment modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="stripe-payment-form">
+                    <div class="form-group">
+                        <label for="card-element" data-en="Card Information" data-ar="معلومات البطاقة">Card Information</label>
+                        <div id="card-element" class="stripe-card-element">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" class="error-message" role="alert"></div>
+                    </div>
+                    
+                    <div class="billing-details">
+                        <h4 data-en="Billing Details" data-ar="تفاصيل الفواتير">Billing Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billing-name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                                <input type="text" id="billing-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                                <input type="email" id="billing-email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billing-address" data-en="Address" data-ar="العنوان">Address</label>
+                                <input type="text" id="billing-address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-city" data-en="City" data-ar="المدينة">City</label>
+                                <input type="text" id="billing-city" name="city" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-summary">
+                        <div class="summary-row">
+                            <span data-en="Plan:" data-ar="الخطة:">Plan:</span>
+                            <span id="summary-plan-name"></span>
+                        </div>
+                        <div class="summary-row">
+                            <span data-en="Amount:" data-ar="المبلغ:">Amount:</span>
+                            <span id="summary-amount"></span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submit-payment" class="btn btn-primary btn-full">
+                        <span id="button-text" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</span>
+                        <div id="spinner" class="spinner hidden"></div>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
