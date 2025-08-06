@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="30" viewBox="0 0 120 30" fill="none">
+  <rect width="120" height="30" rx="4" fill="#0070ba"/>
+  <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Pay</text>
+  <text x="90" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffc439">Pal</text>
+</svg>

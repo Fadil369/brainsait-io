@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" fill="none">
+  <rect width="300" height="200" fill="#f8fafc"/>
+  <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Patient portal interface -->
+  <rect x="50" y="50" width="200" height="100" rx="4" fill="#10b981" opacity="0.1"/>
+  <rect x="60" y="60" width="80" height="8" rx="2" fill="#10b981"/>
+  <rect x="60" y="80" width="120" height="6" rx="2" fill="#6b7280"/>
+  <rect x="60" y="95" width="100" height="6" rx="2" fill="#6b7280"/>
+  
+  <!-- User icon -->
+  <circle cx="200" cy="80" r="15" fill="#10b981"/>
+  <rect x="190" y="100" width="20" height="20" rx="10" fill="#10b981"/>
+  
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2937">
+    Patient Portal
+  </text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#f8fafc"/>
+  <rect x="50" y="50" width="500" height="300" rx="8" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Medical cross -->
+  <rect x="280" y="120" width="40" height="160" rx="4" fill="#10b981"/>
+  <rect x="220" y="180" width="160" height="40" rx="4" fill="#10b981"/>
+  
+  <!-- Pulse line -->
+  <path d="M100 350 L150 350 L180 300 L200 380 L240 250 L260 350 L500 350" 
+        stroke="#2563eb" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Title -->
+  <text x="300" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1f2937">
+    Healthcare Technology
+  </text>
+</svg>
