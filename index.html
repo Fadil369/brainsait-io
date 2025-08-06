@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrainSAIT - Advanced Healthcare Technology Solutions in Saudi Arabia">
+    <meta name="keywords" content="healthcare, technology, Saudi Arabia, AI, medical, BrainSAIT">
+    <title>BrainSAIT - Healthcare Technology Solutions</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/styles.css" as="style">
+    <link rel="preload" href="./assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <!-- RTL Support -->
+    <link rel="stylesheet" href="./assets/css/rtl.css" id="rtl-styles" disabled>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BrainSAIT - Healthcare Technology Solutions">
+    <meta property="og:description" content="Advanced AI-powered healthcare technology solutions for Saudi Arabia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brainsait.io">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="nav-brand">
+                    <a href="#home" class="logo-link" aria-label="BrainSAIT Home">
+                        <img src="./assets/images/logo.svg" alt="BrainSAIT Logo" class="logo">
+                        <span class="logo-text">BrainSAIT</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list" role="menubar">
+                        <li class="nav-item" role="none">
+                            <a href="#home" class="nav-link" role="menuitem" data-en="Home" data-ar="الرئيسية">Home</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="#about" class="nav-link" role="menuitem" data-en="About" data-ar="عن الشركة">About</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="#products" class="nav-link" role="menuitem" data-en="Products" data-ar="المنتجات">Products</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="#store" class="nav-link" role="menuitem" data-en="Store" data-ar="المتجر">Store</a>
+                        </li>
+                        <li class="nav-item" role="none">
+                            <a href="#contact" class="nav-link" role="menuitem" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Language Toggle -->
+                    <div class="language-toggle">
+                        <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+                        <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">عر</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title" data-en="Advanced Healthcare Technology for Saudi Arabia" data-ar="تكنولوجيا الرعاية الصحية المتقدمة للمملكة العربية السعودية">
+                        Advanced Healthcare Technology for Saudi Arabia
+                    </h1>
+                    <p class="hero-subtitle" data-en="Empowering healthcare professionals with AI-driven solutions for better patient outcomes" data-ar="تمكين المتخصصين في الرعاية الصحية بحلول مدعومة بالذكاء الاصطناعي لنتائج أفضل للمرضى">
+                        Empowering healthcare professionals with AI-driven solutions for better patient outcomes
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-en="Explore Products" data-ar="استكشف المنتجات">
+                            Explore Products
+                        </button>
+                        <button class="btn btn-secondary" data-en="Learn More" data-ar="اعرف المزيد">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/images/hero-healthcare.jpg" alt="Healthcare Technology" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title" class="section-title" data-en="About BrainSAIT" data-ar="عن برين سايت">
+                    About BrainSAIT
+                </h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-en="BrainSAIT is a leading healthcare technology company in Saudi Arabia, dedicated to revolutionizing medical care through innovative AI solutions." data-ar="برين سايت هي شركة رائدة في تكنولوجيا الرعاية الصحية في المملكة العربية السعودية، مكرسة لثورة في الرعاية الطبية من خلال حلول الذكاء الاصطناعي المبتكرة.">
+                            BrainSAIT is a leading healthcare technology company in Saudi Arabia, dedicated to revolutionizing medical care through innovative AI solutions.
+                        </p>
+                        <p data-en="Our mission is to enhance healthcare delivery, improve patient outcomes, and support healthcare professionals with cutting-edge technology." data-ar="مهمتنا هي تعزيز تقديم الرعاية الصحية، وتحسين نتائج المرضى، ودعم المتخصصين في الرعاية الصحية بتكنولوجيا متطورة.">
+                            Our mission is to enhance healthcare delivery, improve patient outcomes, and support healthcare professionals with cutting-edge technology.
+                        </p>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature">
+                            <h3 data-en="AI-Powered Diagnostics" data-ar="التشخيص المدعوم بالذكاء الاصطناعي">AI-Powered Diagnostics</h3>
+                            <p data-en="Advanced algorithms for accurate medical diagnosis" data-ar="خوارزميات متقدمة للتشخيص الطبي الدقيق">Advanced algorithms for accurate medical diagnosis</p>
+                        </div>
+                        <div class="feature">
+                            <h3 data-en="Patient Management" data-ar="إدارة المرضى">Patient Management</h3>
+                            <p data-en="Comprehensive systems for efficient patient care" data-ar="أنظمة شاملة لرعاية المرضى بكفاءة">Comprehensive systems for efficient patient care</p>
+                        </div>
+                        <div class="feature">
+                            <h3 data-en="Healthcare Analytics" data-ar="تحليلات الرعاية الصحية">Healthcare Analytics</h3>
+                            <p data-en="Data-driven insights for better healthcare decisions" data-ar="رؤى مدفوعة بالبيانات لقرارات رعاية صحية أفضل">Data-driven insights for better healthcare decisions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products" aria-labelledby="products-title">
+            <div class="container">
+                <h2 id="products-title" class="section-title" data-en="Our Products" data-ar="منتجاتنا">
+                    Our Products
+                </h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./assets/images/product-ai-diagnosis.jpg" alt="AI Diagnosis System" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="AI Diagnosis System" data-ar="نظام التشخيص الذكي">AI Diagnosis System</h3>
+                            <p data-en="Advanced AI-powered diagnostic tools for accurate medical assessments" data-ar="أدوات تشخيصية متقدمة مدعومة بالذكاء الاصطناعي للتقييمات الطبية الدقيقة">
+                                Advanced AI-powered diagnostic tools for accurate medical assessments
+                            </p>
+                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./assets/images/product-patient-portal.jpg" alt="Patient Portal" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="Patient Portal" data-ar="بوابة المرضى">Patient Portal</h3>
+                            <p data-en="Comprehensive patient management and communication platform" data-ar="منصة شاملة لإدارة المرضى والتواصل">
+                                Comprehensive patient management and communication platform
+                            </p>
+                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./assets/images/product-analytics.jpg" alt="Healthcare Analytics" loading="lazy">
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="Healthcare Analytics" data-ar="تحليلات الرعاية الصحية">Healthcare Analytics</h3>
+                            <p data-en="Data visualization and insights for healthcare decision making" data-ar="تصور البيانات والرؤى لاتخاذ قرارات الرعاية الصحية">
+                                Data visualization and insights for healthcare decision making
+                            </p>
+                            <button class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="store" aria-labelledby="store-title">
+            <div class="container">
+                <h2 id="store-title" class="section-title" data-en="Healthcare Solutions Store" data-ar="متجر حلول الرعاية الصحية">
+                    Healthcare Solutions Store
+                </h2>
+                <div class="store-grid">
+                    <div class="store-item">
+                        <div class="store-item-header">
+                            <h3 data-en="Basic Plan" data-ar="الخطة الأساسية">Basic Plan</h3>
+                            <div class="price">
+                                <span class="currency">SAR</span>
+                                <span class="amount">299</span>
+                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Up to 100 patients" data-ar="حتى 100 مريض">Up to 100 patients</li>
+                            <li data-en="Basic analytics" data-ar="تحليلات أساسية">Basic analytics</li>
+                            <li data-en="Email support" data-ar="دعم عبر البريد الإلكتروني">Email support</li>
+                            <li data-en="Mobile app access" data-ar="الوصول لتطبيق الهاتف">Mobile app access</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="basic" data-en="Choose Plan" data-ar="اختر الخطة">
+                            Choose Plan
+                        </button>
+                    </div>
+                    
+                    <div class="store-item featured">
+                        <div class="popular-badge" data-en="Most Popular" data-ar="الأكثر شعبية">Most Popular</div>
+                        <div class="store-item-header">
+                            <h3 data-en="Professional Plan" data-ar="الخطة المهنية">Professional Plan</h3>
+                            <div class="price">
+                                <span class="currency">SAR</span>
+                                <span class="amount">599</span>
+                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Up to 500 patients" data-ar="حتى 500 مريض">Up to 500 patients</li>
+                            <li data-en="Advanced analytics" data-ar="تحليلات متقدمة">Advanced analytics</li>
+                            <li data-en="24/7 support" data-ar="دعم على مدار الساعة">24/7 support</li>
+                            <li data-en="API access" data-ar="الوصول للواجهة البرمجية">API access</li>
+                            <li data-en="Custom integrations" data-ar="تكاملات مخصصة">Custom integrations</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="professional" data-en="Choose Plan" data-ar="اختر الخطة">
+                            Choose Plan
+                        </button>
+                    </div>
+                    
+                    <div class="store-item">
+                        <div class="store-item-header">
+                            <h3 data-en="Enterprise Plan" data-ar="خطة المؤسسات">Enterprise Plan</h3>
+                            <div class="price">
+                                <span class="currency">SAR</span>
+                                <span class="amount">1299</span>
+                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                            </div>
+                        </div>
+                        <ul class="features-list">
+                            <li data-en="Unlimited patients" data-ar="مرضى غير محدودين">Unlimited patients</li>
+                            <li data-en="AI-powered insights" data-ar="رؤى مدعومة بالذكاء الاصطناعي">AI-powered insights</li>
+                            <li data-en="Dedicated support" data-ar="دعم مخصص">Dedicated support</li>
+                            <li data-en="White-label solution" data-ar="حلول بعلامة تجارية مخصصة">White-label solution</li>
+                            <li data-en="Custom development" data-ar="تطوير مخصص">Custom development</li>
+                        </ul>
+                        <button class="btn btn-primary purchase-btn" data-plan="enterprise" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title" data-en="Contact Us" data-ar="اتصل بنا">
+                    Contact Us
+                </h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</h3>
+                        <p data-en="Ready to transform your healthcare practice? Contact us today to learn more about our solutions." data-ar="هل أنت مستعد لتحويل ممارسة الرعاية الصحية الخاصة بك؟ اتصل بنا اليوم لمعرفة المزيد حول حلولنا.">
+                            Ready to transform your healthcare practice? Contact us today to learn more about our solutions.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <strong data-en="Email:" data-ar="البريد الإلكتروني:">Email:</strong>
+                                <a href="mailto:info@brainsait.io">info@brainsait.io</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong data-en="Phone:" data-ar="الهاتف:">Phone:</strong>
+                                <a href="tel:+966123456789">+966 12 345 6789</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong data-en="Address:" data-ar="العنوان:">Address:</strong>
+                                <span data-en="Riyadh, Saudi Arabia" data-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" aria-label="Contact form">
+                        <div class="form-group">
+                            <label for="name" data-en="Name" data-ar="الاسم">Name</label>
+                            <input type="text" id="name" name="name" required aria-describedby="name-error">
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                            <input type="email" id="email" name="email" required aria-describedby="email-error">
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                            <input type="text" id="subject" name="subject" required aria-describedby="subject-error">
+                            <span class="error-message" id="subject-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-en="Send Message" data-ar="إرسال الرسالة">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BrainSAIT</h3>
+                    <p data-en="Transforming healthcare through innovative technology solutions." data-ar="تحويل الرعاية الصحية من خلال حلول تكنولوجية مبتكرة.">
+                        Transforming healthcare through innovative technology solutions.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" data-en="About" data-ar="عن الشركة">About</a></li>
+                        <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+                        <li><a href="#store" data-en="Store" data-ar="المتجر">Store</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ar="الدعم">Support</h4>
+                    <ul>
+                        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                        <li><a href="#" data-en="Help Center" data-ar="مركز المساعدة">Help Center</a></li>
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BrainSAIT. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal" role="dialog" aria-labelledby="payment-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="payment-modal-title" data-en="Choose Payment Method" data-ar="اختر طريقة الدفع">Choose Payment Method</h3>
+                <button class="modal-close" aria-label="Close payment modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-options">
+                    <button class="payment-option" data-method="stripe">
+                        <img src="./assets/images/stripe-logo.svg" alt="Stripe">
+                        <span data-en="Pay with Stripe" data-ar="ادفع باستخدام سترايب">Pay with Stripe</span>
+                    </button>
+                    <button class="payment-option" data-method="paypal">
+                        <img src="./assets/images/paypal-logo.svg" alt="PayPal">
+                        <span data-en="Pay with PayPal" data-ar="ادفع باستخدام بايبال">Pay with PayPal</span>
+                    </button>
+                </div>
+                <div class="selected-plan-info">
+                    <h4 data-en="Selected Plan:" data-ar="الخطة المختارة:">Selected Plan:</h4>
+                    <div class="plan-details">
+                        <span class="plan-name"></span>
+                        <span class="plan-price"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner" aria-label="Loading"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js" defer></script>
+</body>
+</html>
