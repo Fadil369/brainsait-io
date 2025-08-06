@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BrainSAIT - Advanced Healthcare Technology Solutions in Saudi Arabia">
-    <meta name="keywords" content="healthcare, technology, Saudi Arabia, AI, medical, BrainSAIT">
-    <title>BrainSAIT - Healthcare Technology Solutions</title>
+    <meta name="description" content="BrainSAIT - Your Ultimate Digital Solutions Store | Apps, Software, Tools & Professional Services in Saudi Arabia">
+    <meta name="keywords" content="apps, software, tools, digital solutions, AI tools, productivity apps, business software, BrainSAIT, Saudi Arabia, subscriptions, partnerships">
+    <title>BrainSAIT - Digital Solutions Store | Apps, Software & Professional Services</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="./assets/css/styles.css" as="style">
@@ -20,14 +20,22 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BrainSAIT Store">
+    
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="BrainSAIT - Healthcare Technology Solutions">
-    <meta property="og:description" content="Advanced AI-powered healthcare technology solutions for Saudi Arabia">
+    <meta property="og:title" content="BrainSAIT - Digital Solutions Store | Apps, Software & Professional Services">
+    <meta property="og:description" content="Discover powerful apps, software tools, and professional services. Your one-stop digital solutions store in Saudi Arabia.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brainsait.io">
+    <meta property="og:image" content="https://brainsait.io/assets/images/og-image.jpg">
     
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.paypal.com https://checkout.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.stripe.com; frame-src https://js.stripe.com https://hooks.stripe.com;">
 </head>
 <body>
     <!-- Skip to main content link for accessibility -->
@@ -97,23 +105,23 @@
         <section id="home" class="hero" aria-labelledby="hero-title">
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 id="hero-title" class="hero-title" data-en="Advanced Healthcare Technology for Saudi Arabia" data-ar="تكنولوجيا الرعاية الصحية المتقدمة للمملكة العربية السعودية">
-                        Advanced Healthcare Technology for Saudi Arabia
+                    <h1 id="hero-title" class="hero-title" data-en="Your Ultimate Digital Solutions Store" data-ar="متجرك الرقمي الشامل للحلول المتكاملة">
+                        Your Ultimate Digital Solutions Store
                     </h1>
-                    <p class="hero-subtitle" data-en="Empowering healthcare professionals with AI-driven solutions for better patient outcomes" data-ar="تمكين المتخصصين في الرعاية الصحية بحلول مدعومة بالذكاء الاصطناعي لنتائج أفضل للمرضى">
-                        Empowering healthcare professionals with AI-driven solutions for better patient outcomes
+                    <p class="hero-subtitle" data-en="Discover powerful apps, software tools, and professional services designed to accelerate your business growth and digital transformation journey" data-ar="اكتشف التطبيقات القوية والأدوات البرمجية والخدمات المهنية المصممة لتسريع نمو أعمالك ورحلة التحول الرقمي">
+                        Discover powerful apps, software tools, and professional services designed to accelerate your business growth and digital transformation journey
                     </p>
                     <div class="hero-actions">
-                        <button class="btn btn-primary" data-en="Explore Products" data-ar="استكشف المنتجات">
-                            Explore Products
+                        <button class="btn btn-primary" onclick="window.brainSAIT.scrollToSection('store')" data-en="Browse Store" data-ar="تصفح المتجر">
+                            Browse Store
                         </button>
-                        <button class="btn btn-secondary" data-en="Learn More" data-ar="اعرف المزيد">
-                            Learn More
+                        <button class="btn btn-secondary" onclick="window.brainSAIT.scrollToSection('partnerships')" data-en="Explore Partnerships" data-ar="استكشف الشراكات">
+                            Explore Partnerships
                         </button>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="./assets/images/hero-healthcare.jpg" alt="Healthcare Technology" loading="eager">
+                    <img src="./assets/images/hero-healthcare.jpg" alt="Digital Solutions Platform" loading="eager">
                 </div>
             </div>
         </section>
@@ -121,30 +129,30 @@
         <!-- About Section -->
         <section id="about" class="about" aria-labelledby="about-title">
             <div class="container">
-                <h2 id="about-title" class="section-title" data-en="About BrainSAIT" data-ar="عن برين سايت">
-                    About BrainSAIT
+                <h2 id="about-title" class="section-title" data-en="About BrainSAIT Digital Solutions" data-ar="عن حلول برين سايت الرقمية">
+                    About BrainSAIT Digital Solutions
                 </h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p data-en="BrainSAIT is a leading healthcare technology company in Saudi Arabia, dedicated to revolutionizing medical care through innovative AI solutions." data-ar="برين سايت هي شركة رائدة في تكنولوجيا الرعاية الصحية في المملكة العربية السعودية، مكرسة لثورة في الرعاية الطبية من خلال حلول الذكاء الاصطناعي المبتكرة.">
-                            BrainSAIT is a leading healthcare technology company in Saudi Arabia, dedicated to revolutionizing medical care through innovative AI solutions.
+                        <p data-en="BrainSAIT is a comprehensive digital solutions platform providing cutting-edge apps, software tools, and professional services to businesses and individuals across Saudi Arabia and beyond." data-ar="برين سايت هي منصة شاملة للحلول الرقمية تقدم تطبيقات وأدوات برمجية وخدمات مهنية متطورة للشركات والأفراد في المملكة العربية السعودية وخارجها.">
+                            BrainSAIT is a comprehensive digital solutions platform providing cutting-edge apps, software tools, and professional services to businesses and individuals across Saudi Arabia and beyond.
                         </p>
-                        <p data-en="Our mission is to enhance healthcare delivery, improve patient outcomes, and support healthcare professionals with cutting-edge technology." data-ar="مهمتنا هي تعزيز تقديم الرعاية الصحية، وتحسين نتائج المرضى، ودعم المتخصصين في الرعاية الصحية بتكنولوجيا متطورة.">
-                            Our mission is to enhance healthcare delivery, improve patient outcomes, and support healthcare professionals with cutting-edge technology.
+                        <p data-en="Our mission is to democratize access to powerful digital tools, accelerate digital transformation, and foster innovation through strategic partnerships and world-class software solutions." data-ar="مهمتنا هي إضفاء الطابع الديمقراطي على الوصول إلى الأدوات الرقمية القوية، وتسريع التحول الرقمي، وتعزيز الابتكار من خلال الشراكات الاستراتيجية وحلول البرمجيات عالمية المستوى.">
+                            Our mission is to democratize access to powerful digital tools, accelerate digital transformation, and foster innovation through strategic partnerships and world-class software solutions.
                         </p>
                     </div>
                     <div class="about-features">
                         <div class="feature">
-                            <h3 data-en="AI-Powered Diagnostics" data-ar="التشخيص المدعوم بالذكاء الاصطناعي">AI-Powered Diagnostics</h3>
-                            <p data-en="Advanced algorithms for accurate medical diagnosis" data-ar="خوارزميات متقدمة للتشخيص الطبي الدقيق">Advanced algorithms for accurate medical diagnosis</p>
+                            <h3 data-en="AI-Powered Applications" data-ar="تطبيقات مدعومة بالذكاء الاصطناعي">AI-Powered Applications</h3>
+                            <p data-en="Intelligent software solutions that adapt and learn from your workflows" data-ar="حلول برمجية ذكية تتكيف وتتعلم من سير عملك">Intelligent software solutions that adapt and learn from your workflows</p>
                         </div>
                         <div class="feature">
-                            <h3 data-en="Patient Management" data-ar="إدارة المرضى">Patient Management</h3>
-                            <p data-en="Comprehensive systems for efficient patient care" data-ar="أنظمة شاملة لرعاية المرضى بكفاءة">Comprehensive systems for efficient patient care</p>
+                            <h3 data-en="Professional Services" data-ar="خدمات مهنية">Professional Services</h3>
+                            <p data-en="Expert consulting and implementation services for digital transformation" data-ar="خدمات استشارية وتنفيذية متخصصة للتحول الرقمي">Expert consulting and implementation services for digital transformation</p>
                         </div>
                         <div class="feature">
-                            <h3 data-en="Healthcare Analytics" data-ar="تحليلات الرعاية الصحية">Healthcare Analytics</h3>
-                            <p data-en="Data-driven insights for better healthcare decisions" data-ar="رؤى مدفوعة بالبيانات لقرارات رعاية صحية أفضل">Data-driven insights for better healthcare decisions</p>
+                            <h3 data-en="Partnership Ecosystem" data-ar="نظام الشراكات البيئي">Partnership Ecosystem</h3>
+                            <p data-en="Strategic collaborations driving innovation and business growth" data-ar="تعاونات استراتيجية تدفع الابتكار ونمو الأعمال">Strategic collaborations driving innovation and business growth</p>
                         </div>
                     </div>
                 </div>
@@ -154,46 +162,79 @@
         <!-- Products Section -->
         <section id="products" class="products" aria-labelledby="products-title">
             <div class="container">
-                <h2 id="products-title" class="section-title" data-en="Our Products" data-ar="منتجاتنا">
-                    Our Products
+                <h2 id="products-title" class="section-title" data-en="Featured Digital Solutions" data-ar="الحلول الرقمية المميزة">
+                    Featured Digital Solutions
                 </h2>
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="./assets/images/product-ai-diagnosis.jpg" alt="AI Diagnosis System" loading="lazy">
+                            <img src="./assets/images/product-ai-diagnosis.jpg" alt="AI Context Engine Platform" loading="lazy">
                         </div>
                         <div class="product-content">
-                            <h3 data-en="AI Diagnosis System" data-ar="نظام التشخيص الذكي">AI Diagnosis System</h3>
-                            <p data-en="Advanced AI-powered diagnostic tools for accurate medical assessments" data-ar="أدوات تشخيصية متقدمة مدعومة بالذكاء الاصطناعي للتقييمات الطبية الدقيقة">
-                                Advanced AI-powered diagnostic tools for accurate medical assessments
+                            <h3 data-en="AI Context Engine Platform" data-ar="منصة محرك السياق الذكي">AI Context Engine Platform</h3>
+                            <p data-en="Advanced AI-powered context analysis and content processing system for intelligent automation" data-ar="نظام تحليل السياق ومعالجة المحتوى المتطور المدعوم بالذكاء الاصطناعي للأتمتة الذكية">
+                                Advanced AI-powered context analysis and content processing system for intelligent automation
                             </p>
-                            <a href="ai-diagnosis.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+                            <div class="product-badges">
+                                <span class="badge live">Live</span>
+                                <span class="badge popular">Most Popular</span>
+                            </div>
+                            <div class="product-pricing">
+                                <span class="price">SAR 199<small>/month</small></span>
+                                <span class="trial">1-day free trial</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="ai-context-engine.html" class="btn btn-primary" data-en="Learn More" data-ar="تعرف على المزيد">Learn More</a>
+                                <button class="btn btn-outline demo-trial-btn" data-product="context-engine" data-url="https://context.thefadil.site/" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">Start Free Trial</button>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="./assets/images/product-patient-portal.jpg" alt="Patient Portal" loading="lazy">
+                            <img src="./assets/images/product-patient-portal.jpg" alt="Excel Advanced Processor" loading="lazy">
                         </div>
                         <div class="product-content">
-                            <h3 data-en="Patient Portal" data-ar="بوابة المرضى">Patient Portal</h3>
-                            <p data-en="Comprehensive patient management and communication platform" data-ar="منصة شاملة لإدارة المرضى والتواصل">
-                                Comprehensive patient management and communication platform
+                            <h3 data-en="Excel Advanced Processor" data-ar="معالج إكسل المتقدم">Excel Advanced Processor</h3>
+                            <p data-en="Powerful Excel data consolidation, merging, and analysis tool with AI-driven insights" data-ar="أداة قوية لتوحيد ودمج وتحليل بيانات إكسل مع رؤى مدعومة بالذكاء الاصطناعي">
+                                Powerful Excel data consolidation, merging, and analysis tool with AI-driven insights
                             </p>
-                            <a href="patient-portal.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+                            <div class="product-badges">
+                                <span class="badge live">Live</span>
+                                <span class="badge productivity">Productivity</span>
+                            </div>
+                            <div class="product-pricing">
+                                <span class="price">SAR 149<small>/month</small></span>
+                                <span class="trial">1-day free trial</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="excel-processor.html" class="btn btn-primary" data-en="Learn More" data-ar="تعرف على المزيد">Learn More</a>
+                                <button class="btn btn-outline demo-trial-btn" data-product="excel-processor" data-url="https://excel-advanced-consolidator.fadil.workers.dev/" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">Start Free Trial</button>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="./assets/images/product-analytics.jpg" alt="Healthcare Analytics" loading="lazy">
+                            <img src="./assets/images/product-analytics.jpg" alt="Professional Services Suite" loading="lazy">
                         </div>
                         <div class="product-content">
-                            <h3 data-en="Healthcare Analytics" data-ar="تحليلات الرعاية الصحية">Healthcare Analytics</h3>
-                            <p data-en="Data visualization and insights for healthcare decision making" data-ar="تصور البيانات والرؤى لاتخاذ قرارات الرعاية الصحية">
-                                Data visualization and insights for healthcare decision making
+                            <h3 data-en="Professional Services Suite" data-ar="مجموعة الخدمات المهنية">Professional Services Suite</h3>
+                            <p data-en="Comprehensive consulting and implementation services for digital transformation projects" data-ar="خدمات استشارية وتنفيذية شاملة لمشاريع التحول الرقمي">
+                                Comprehensive consulting and implementation services for digital transformation projects
                             </p>
-                            <a href="healthcare-analytics.html" class="btn btn-outline" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+                            <div class="product-badges">
+                                <span class="badge custom">Custom</span>
+                                <span class="badge enterprise">Enterprise</span>
+                            </div>
+                            <div class="product-pricing">
+                                <span class="price">From SAR 5,500<small>/project</small></span>
+                                <span class="trial">Free consultation</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="professional-services.html" class="btn btn-primary" data-en="Learn More" data-ar="تعرف على المزيد">Learn More</a>
+                                <button class="btn btn-outline" onclick="window.brainSAIT.scrollToSection('contact')" data-en="Get Consultation" data-ar="احصل على استشارة">Get Consultation</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -203,8 +244,8 @@
         <!-- Store Section -->
         <section id="store" class="store" aria-labelledby="store-title">
             <div class="container">
-                <h2 id="store-title" class="section-title" data-en="Healthcare Solutions Store" data-ar="متجر حلول الرعاية الصحية">
-                    Healthcare Solutions Store
+                <h2 id="store-title" class="section-title" data-en="Digital Solutions Store" data-ar="متجر الحلول الرقمية">
+                    Digital Solutions Store
                 </h2>
                 
                 <!-- Promotional Banner -->
@@ -974,12 +1015,12 @@
                                     <span class="value" id="base-price">SAR 0</span>
                                 </div>
                                 
-                                <div class="volume-discount" id="volume-discount-section" style="display: none;">
+                                <div class="volume-discount volume-discount-section" id="volume-discount-section">
                                     <span class="label" data-en="Volume Discount:" data-ar="خصم الكمية:">Volume Discount:</span>
                                     <span class="value" id="volume-discount">0%</span>
                                 </div>
                                 
-                                <div class="loyalty-discount" id="loyalty-discount-section" style="display: none;">
+                                <div class="loyalty-discount loyalty-discount-section" id="loyalty-discount-section">
                                     <span class="label" data-en="Loyalty Discount:" data-ar="خصم الولاء:">Loyalty Discount:</span>
                                     <span class="value" id="loyalty-discount">0%</span>
                                 </div>
@@ -994,7 +1035,7 @@
                                     <span class="value" id="total-price">SAR 0</span>
                                 </div>
                                 
-                                <div class="savings-indicator" id="savings-indicator" style="display: none;">
+                                <div class="savings-indicator savings-indicator" id="savings-indicator">
                                     <span class="label" data-en="You Save:" data-ar="توفر:">You Save:</span>
                                     <span class="value" id="savings-amount">SAR 0</span>
                                 </div>
@@ -1254,6 +1295,33 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=SAR&locale=en_SA"></script>
+    <script src="./assets/js/analytics.js"></script>
+    <script src="./assets/js/api-simulator.js"></script>
+    <script src="./assets/js/payment-processor.js"></script>
     <script src="./assets/js/main.js" defer></script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Basic performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                console.log('Page load time:', navigation.loadEventEnd - navigation.fetchStart, 'ms');
+            }
+        });
+        
+        // Service Worker for offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('SW registered: ', registration);
+                }).catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            });
+        }
+    </script>
 </body>
 </html>

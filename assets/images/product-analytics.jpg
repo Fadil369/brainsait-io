@@ -1,20 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" fill="none">
+  <defs>
+    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
   <rect width="300" height="200" fill="#f8fafc"/>
   <rect x="20" y="20" width="260" height="160" rx="8" fill="white" stroke="#e5e7eb"/>
   
-  <!-- Analytics chart -->
-  <rect x="50" y="120" width="20" height="40" fill="#2563eb"/>
-  <rect x="80" y="100" width="20" height="60" fill="#10b981"/>
-  <rect x="110" y="80" width="20" height="80" fill="#f59e0b"/>
-  <rect x="140" y="90" width="20" height="70" fill="#ef4444"/>
-  <rect x="170" y="70" width="20" height="90" fill="#8b5cf6"/>
-  <rect x="200" y="85" width="20" height="75" fill="#06b6d4"/>
+  <!-- Professional team icons -->
+  <g id="team">
+    <!-- Person 1 -->
+    <circle cx="80" cy="70" r="12" fill="#2563eb"/>
+    <rect x="70" y="85" width="20" height="15" rx="7" fill="#2563eb"/>
+    
+    <!-- Person 2 -->
+    <circle cx="150" cy="70" r="12" fill="#10b981"/>
+    <rect x="140" y="85" width="20" height="15" rx="7" fill="#10b981"/>
+    
+    <!-- Person 3 -->
+    <circle cx="220" cy="70" r="12" fill="#7c3aed"/>
+    <rect x="210" y="85" width="20" height="15" rx="7" fill="#7c3aed"/>
+  </g>
   
-  <!-- Trend line -->
-  <path d="M60 130 L90 110 L120 90 L150 100 L180 80 L210 95" 
-        stroke="#2563eb" stroke-width="2" fill="none"/>
+  <!-- Consultation table -->
+  <rect x="60" y="110" width="180" height="40" rx="8" fill="url(#serviceGrad)" opacity="0.1"/>
+  <ellipse cx="150" cy="130" rx="80" ry="15" fill="url(#serviceGrad)" opacity="0.2"/>
   
-  <text x="150" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1f2937">
-    Healthcare Analytics
+  <!-- Service icons on table -->
+  <g id="services">
+    <!-- Strategy -->
+    <circle cx="100" cy="125" r="8" fill="#2563eb"/>
+    <text x="100" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">📋</text>
+    
+    <!-- Development -->
+    <circle cx="150" cy="125" r="8" fill="#10b981"/>
+    <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">⚙️</text>
+    
+    <!-- Analytics -->
+    <circle cx="200" cy="125" r="8" fill="#7c3aed"/>
+    <text x="200" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">📊</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#7c3aed" stroke-width="2" opacity="0.3">
+    <line x1="80" y1="100" x2="100" y2="117"/>
+    <line x1="150" y1="100" x2="150" y2="117"/>
+    <line x1="220" y1="100" x2="200" y2="117"/>
+  </g>
+  
+  <!-- Success indicators -->
+  <g fill="#10b981">
+    <circle cx="50" cy="150" r="3"/>
+    <circle cx="250" cy="150" r="3"/>
+    <text x="60" y="155" font-family="Arial, sans-serif" font-size="8">ROI</text>
+    <text x="230" y="155" font-family="Arial, sans-serif" font-size="8">Growth</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="150" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">
+    Professional Services
   </text>
 </svg>

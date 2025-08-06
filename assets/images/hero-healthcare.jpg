@@ -1,17 +1,96 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
-  <rect width="600" height="400" fill="#f8fafc"/>
-  <rect x="50" y="50" width="500" height="300" rx="8" fill="white" stroke="#e5e7eb"/>
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
   
-  <!-- Medical cross -->
-  <rect x="280" y="120" width="40" height="160" rx="4" fill="#10b981"/>
-  <rect x="220" y="180" width="160" height="40" rx="4" fill="#10b981"/>
+  <rect width="600" height="400" fill="url(#heroGrad)"/>
   
-  <!-- Pulse line -->
-  <path d="M100 350 L150 350 L180 300 L200 380 L240 250 L260 350 L500 350" 
-        stroke="#2563eb" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Main dashboard/screen -->
+  <rect x="80" y="60" width="440" height="280" rx="12" fill="url(#cardGrad)" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- App icons/modules -->
+  <g id="app-grid">
+    <!-- AI Brain Icon -->
+    <rect x="120" y="100" width="60" height="60" rx="8" fill="#2563eb" opacity="0.1"/>
+    <circle cx="150" cy="130" r="20" fill="#2563eb"/>
+    <path d="M140 125 Q150 115 160 125 Q155 135 150 130 Q145 135 140 125" fill="white"/>
+    <circle cx="145" cy="125" r="2" fill="white"/>
+    <circle cx="155" cy="125" r="2" fill="white"/>
+    
+    <!-- Analytics Chart -->
+    <rect x="200" y="100" width="60" height="60" rx="8" fill="#10b981" opacity="0.1"/>
+    <rect x="215" y="140" width="8" height="15" fill="#10b981"/>
+    <rect x="225" y="130" width="8" height="25" fill="#10b981"/>
+    <rect x="235" y="125" width="8" height="30" fill="#10b981"/>
+    <rect x="245" y="120" width="8" height="35" fill="#10b981"/>
+    
+    <!-- Cloud Services -->
+    <rect x="280" y="100" width="60" height="60" rx="8" fill="#7c3aed" opacity="0.1"/>
+    <ellipse cx="310" cy="125" rx="15" ry="8" fill="#7c3aed"/>
+    <ellipse cx="305" cy="130" rx="12" ry="6" fill="#7c3aed"/>
+    <ellipse cx="315" cy="135" rx="10" ry="5" fill="#7c3aed"/>
+    
+    <!-- Mobile App -->
+    <rect x="360" y="100" width="60" height="60" rx="8" fill="#f59e0b" opacity="0.1"/>
+    <rect x="375" y="110" width="30" height="45" rx="6" fill="#f59e0b"/>
+    <rect x="380" y="115" width="20" height="2" rx="1" fill="white"/>
+    <rect x="380" y="120" width="15" height="2" rx="1" fill="white"/>
+    <rect x="380" y="125" width="18" height="2" rx="1" fill="white"/>
+    <circle cx="390" cy="145" r="8" fill="white"/>
+    
+    <!-- Security Shield -->
+    <rect x="440" y="100" width="60" height="60" rx="8" fill="#ef4444" opacity="0.1"/>
+    <path d="M470 110 L470 140 Q470 145 475 148 Q480 145 480 140 L480 110 Q475 108 470 110" fill="#ef4444"/>
+    <path d="M472 120 L478 126 L472 132" stroke="white" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Connection lines -->
+  <g id="connections" stroke="#2563eb" stroke-width="2" opacity="0.3">
+    <line x1="180" y1="130" x2="200" y2="130"/>
+    <line x1="260" y1="130" x2="280" y2="130"/>
+    <line x1="340" y1="130" x2="360" y2="130"/>
+    <line x1="420" y1="130" x2="440" y2="130"/>
+  </g>
+  
+  <!-- Bottom section - Integration APIs -->
+  <g id="api-section">
+    <rect x="120" y="200" width="360" height="80" rx="8" fill="white" stroke="#e5e7eb"/>
+    <text x="140" y="220" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Integration APIs</text>
+    
+    <!-- API endpoints -->
+    <circle cx="140" cy="235" r="4" fill="#10b981"/>
+    <text x="150" y="240" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Payment Gateway</text>
+    
+    <circle cx="250" cy="235" r="4" fill="#2563eb"/>
+    <text x="260" y="240" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Analytics Engine</text>
+    
+    <circle cx="360" cy="235" r="4" fill="#7c3aed"/>
+    <text x="370" y="240" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">AI Processing</text>
+    
+    <circle cx="140" cy="255" r="4" fill="#f59e0b"/>
+    <text x="150" y="260" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Cloud Storage</text>
+    
+    <circle cx="250" cy="255" r="4" fill="#ef4444"/>
+    <text x="260" y="260" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Security Layer</text>
+    
+    <circle cx="360" cy="255" r="4" fill="#10b981"/>
+    <text x="370" y="260" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Notification Service</text>
+  </g>
+  
+  <!-- Status indicators -->
+  <g id="status">
+    <circle cx="500" cy="80" r="6" fill="#10b981"/>
+    <text x="515" y="85" font-family="Arial, sans-serif" font-size="10" fill="#10b981">All Systems Online</text>
+  </g>
   
   <!-- Title -->
-  <text x="300" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1f2937">
-    Healthcare Technology
-  </text>
+  <text x="300" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1f2937">Digital Solutions Platform</text>
+  <text x="300" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Apps • Software • Tools • Partnerships</text>
 </svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95"/>
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:0.95"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative patterns -->
+  <g opacity="0.1">
+    <circle cx="100" cy="100" r="50" fill="white"/>
+    <circle cx="1100" cy="530" r="80" fill="white"/>
+    <circle cx="200" cy="500" r="30" fill="white"/>
+    <circle cx="1000" cy="150" r="40" fill="white"/>
+  </g>
+  
+  <!-- Main content card -->
+  <rect x="100" y="100" width="1000" height="430" rx="20" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Logo area -->
+  <circle cx="250" cy="230" r="60" fill="#2563eb"/>
+  <text x="250" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="white">BS</text>
+  
+  <!-- Title and tagline -->
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#1f2937">BrainSAIT</text>
+  <text x="400" y="260" font-family="Arial, sans-serif" font-size="24" fill="#6b7280">Digital Solutions Store</text>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="20" fill="#6b7280">Apps • Software • Tools • Partnerships</text>
+  
+  <!-- Feature icons -->
+  <g id="features">
+    <!-- AI Icon -->
+    <rect x="150" y="350" width="80" height="80" rx="12" fill="#2563eb" opacity="0.1"/>
+    <circle cx="190" cy="390" r="25" fill="#2563eb"/>
+    <text x="190" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">🤖</text>
+    <text x="190" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2937">AI Solutions</text>
+    
+    <!-- Analytics Icon -->
+    <rect x="270" y="350" width="80" height="80" rx="12" fill="#10b981" opacity="0.1"/>
+    <circle cx="310" cy="390" r="25" fill="#10b981"/>
+    <text x="310" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">📊</text>
+    <text x="310" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2937">Analytics</text>
+    
+    <!-- Cloud Icon -->
+    <rect x="390" y="350" width="80" height="80" rx="12" fill="#7c3aed" opacity="0.1"/>
+    <circle cx="430" cy="390" r="25" fill="#7c3aed"/>
+    <text x="430" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">☁️</text>
+    <text x="430" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2937">Cloud Tools</text>
+    
+    <!-- Partnership Icon -->
+    <rect x="510" y="350" width="80" height="80" rx="12" fill="#f59e0b" opacity="0.1"/>
+    <circle cx="550" cy="390" r="25" fill="#f59e0b"/>
+    <text x="550" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">🤝</text>
+    <text x="550" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2937">Partnerships</text>
+  </g>
+  
+  <!-- Stats/highlights -->
+  <g id="stats">
+    <rect x="700" y="350" width="350" height="100" rx="12" fill="white" opacity="0.8"/>
+    <text x="720" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">Live Products Available</text>
+    <text x="720" y="405" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">✅ AI Context Engine Platform</text>
+    <text x="720" y="425" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">✅ Excel Advanced Processor</text>
+    <text x="720" y="445" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">✅ Professional Services Suite</text>
+  </g>
+  
+  <!-- Footer tagline -->
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)">Transform Your Business with Intelligent Digital Solutions</text>
+</svg>

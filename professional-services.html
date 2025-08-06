@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services - BrainSait</title>
+    <meta name="description" content="Expert consulting and professional services for digital transformation and technology solutions">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/images/logo.svg" alt="BrainSait Logo" class="logo">
+                        <span class="logo-text">BrainSait</span>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="index.html#products" class="nav-link">Products</a></li>
+                        <li><a href="index.html#partnerships" class="nav-link">Partnerships</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Hero Section -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="product-badge">🎯 Consulting</span>
+                    <h1 class="hero-title">Professional Services</h1>
+                    <p class="hero-subtitle">
+                        Expert consulting and professional services to accelerate your digital transformation. 
+                        Get strategic guidance, custom solutions, and hands-on support from our experienced team.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="window.paymentProcessor.showPaymentModal('professional-services', 'Professional Services Consultation', 2500)">
+                            Book Consultation
+                        </button>
+                        <a href="#services" class="btn btn-secondary btn-large">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/product-analytics.jpg" alt="Professional Services Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive digital transformation strategy and roadmap development for your organization</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Custom Development</h3>
+                    <p>Bespoke software solutions tailored to your specific business requirements and workflows</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>System Integration</h3>
+                    <p>Seamless integration of existing systems with new technologies and platforms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data Analytics</h3>
+                    <p>Advanced data analysis, business intelligence, and predictive modeling solutions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Training & Support</h3>
+                    <p>Comprehensive training programs and ongoing support for your team and systems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security Consulting</h3>
+                    <p>Cybersecurity assessment, implementation, and compliance consulting services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Packages Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Service Packages</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h5>Strategy Consultation</h5>
+                    <p>Get expert guidance on your digital transformation journey with our strategic consultation package.</p>
+                    <ul class="service-features">
+                        <li>Current state assessment</li>
+                        <li>Digital readiness evaluation</li>
+                        <li>Strategic roadmap development</li>
+                        <li>Technology recommendations</li>
+                        <li>Implementation planning</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-amount">$2,500</span>
+                        <span class="price-period">per consultation</span>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-primary" onclick="window.paymentProcessor.showPaymentModal('strategy-consultation', 'Strategy Consultation Package', 2500)">
+                            Book Now
+                        </button>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <h5>Custom Development</h5>
+                    <p>Full-cycle custom software development tailored to your specific business needs and requirements.</p>
+                    <ul class="service-features">
+                        <li>Requirements analysis</li>
+                        <li>Solution architecture</li>
+                        <li>Full-stack development</li>
+                        <li>Quality assurance testing</li>
+                        <li>Deployment and support</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-amount">$15,000</span>
+                        <span class="price-period">starting price</span>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-primary" onclick="window.paymentProcessor.showPaymentModal('custom-development', 'Custom Development Project', 15000)">
+                            Get Quote
+                        </button>
+                        <a href="#contact" class="btn btn-outline">Discuss Project</a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <h5>System Integration</h5>
+                    <p>Seamlessly connect your existing systems with new technologies for improved efficiency and data flow.</p>
+                    <ul class="service-features">
+                        <li>System analysis and mapping</li>
+                        <li>Integration architecture design</li>
+                        <li>API development and testing</li>
+                        <li>Data migration and sync</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-amount">$8,500</span>
+                        <span class="price-period">starting price</span>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-primary" onclick="window.paymentProcessor.showPaymentModal('system-integration', 'System Integration Service', 8500)">
+                            Get Started
+                        </button>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <h5>Training Programs</h5>
+                    <p>Comprehensive training programs to ensure your team can effectively use and maintain your new systems.</p>
+                    <ul class="service-features">
+                        <li>Customized training curriculum</li>
+                        <li>Hands-on workshops</li>
+                        <li>Documentation and guides</li>
+                        <li>Ongoing support access</li>
+                        <li>Performance tracking</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price-amount">$3,500</span>
+                        <span class="price-period">per program</span>
+                    </div>
+                    <div class="service-actions">
+                        <button class="btn btn-primary" onclick="window.paymentProcessor.showPaymentModal('training-program', 'Professional Training Program', 3500)">
+                            Enroll Now
+                        </button>
+                        <a href="#contact" class="btn btn-outline">Customize</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefit-list">
+                    <h2>Our Proven Process</h2>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">1</div>
+                        <div class="benefit-content">
+                            <h3>Discovery & Assessment</h3>
+                            <p>We start by understanding your current state, challenges, and objectives through comprehensive assessment and stakeholder interviews.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">2</div>
+                        <div class="benefit-content">
+                            <h3>Strategy & Planning</h3>
+                            <p>Develop a detailed strategy and implementation plan with clear milestones, timelines, and success metrics.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">3</div>
+                        <div class="benefit-content">
+                            <h3>Implementation</h3>
+                            <p>Execute the plan with regular progress updates, quality checkpoints, and collaborative feedback sessions.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">4</div>
+                        <div class="benefit-content">
+                            <h3>Support & Optimization</h3>
+                            <p>Provide ongoing support, monitoring, and optimization to ensure long-term success and ROI.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="benefits-image">
+                    <img src="assets/images/product-analytics.jpg" alt="Professional Services Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let our expert team guide you through your digital transformation journey with proven strategies and hands-on support.</p>
+                <div class="cta-actions">
+                    <button class="btn btn-large btn-cta-white" onclick="window.paymentProcessor.showPaymentModal('consultation', 'Initial Consultation', 500)">
+                        Schedule Free Consultation
+                    </button>
+                    <a href="index.html#contact" class="btn btn-large btn-cta-outline">
+                        Contact Our Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BrainSait</h3>
+                    <p>Transforming digital solutions with intelligent technology and innovative partnerships.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="ai-context-engine.html">AI Context Engine</a></li>
+                        <li><a href="excel-processor.html">Excel Advanced Processor</a></li>
+                        <li><a href="professional-services.html">Professional Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Strategy Consulting</a></li>
+                        <li><a href="#services">Custom Development</a></li>
+                        <li><a href="#services">System Integration</a></li>
+                        <li><a href="#services">Training Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Service Portfolio</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BrainSait. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/payment-processor.js"></script>
+    <script src="assets/js/analytics.js"></script>
+</body>
+</html>

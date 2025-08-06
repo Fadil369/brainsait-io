@@ -10,22 +10,32 @@ class BrainSAIT {
         this.mobileMenuOpen = false;
         this.paymentModal = null;
         this.loadingOverlay = null;
+        this.paymentProcessor = null;
         
         this.init();
     }
     
-    init() {
+    async init() {
         this.setupEventListeners();
         this.setupLanguageToggle();
         this.setupMobileMenu();
         this.setupModals();
         this.setupSmoothScrolling();
         this.setupFormValidation();
-        this.setupPaymentHandlers();
         this.setupBillingToggle();
         this.setupAccessibility();
         this.loadUserPreferences();
         this.checkDemoAccess();
+        
+        // Initialize enhanced payment processor
+        if (window.PaymentProcessor) {
+            this.paymentProcessor = new PaymentProcessor();
+        }
+        
+        // Initialize partnership calculator
+        if (window.PartnershipCalculator) {
+            this.partnershipCalculator = new PartnershipCalculator();
+        }
     }
     
     /**
