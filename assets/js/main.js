@@ -22,6 +22,7 @@ class BrainSAIT {
         this.setupSmoothScrolling();
         this.setupFormValidation();
         this.setupPaymentHandlers();
+        this.setupBillingToggle();
         this.setupAccessibility();
         this.loadUserPreferences();
     }
@@ -82,6 +83,12 @@ class BrainSAIT {
         
         // Page visibility change
         document.addEventListener('visibilitychange', () => this.handleVisibilityChange());
+        
+        // Billing toggle
+        const billingToggle = document.getElementById('billing-period');
+        if (billingToggle) {
+            billingToggle.addEventListener('change', (e) => this.handleBillingToggle(e));
+        }
     }
     
     /**
@@ -731,6 +738,63 @@ class BrainSAIT {
         // Initialize payment providers when needed
         this.stripeInitialized = false;
         this.paypalInitialized = false;
+    }
+    
+    /**
+     * Setup billing toggle functionality
+     */
+    setupBillingToggle() {
+        this.isAnnualBilling = false;
+    }
+    
+    /**
+     * Handle billing period toggle
+     */
+    handleBillingToggle(event) {
+        this.isAnnualBilling = event.target.checked;
+        this.updatePriceDisplay();
+    }
+    
+    /**
+     * Update price display based on billing period
+     */
+    updatePriceDisplay() {
+        const monthlyPrices = document.querySelectorAll('.monthly-price');
+        const annualPrices = document.querySelectorAll('.annual-price');
+        const monthlyPeriods = document.querySelectorAll('.monthly-period');
+        const annualPeriods = document.querySelectorAll('.annual-period');
+        const annualSavings = document.querySelectorAll('.annual-savings');
+        
+        if (this.isAnnualBilling) {
+            // Show annual pricing
+            monthlyPrices.forEach(el => el.classList.add('hidden'));
+            annualPrices.forEach(el => el.classList.remove('hidden'));
+            monthlyPeriods.forEach(el => el.classList.add('hidden'));
+            annualPeriods.forEach(el => el.classList.remove('hidden'));
+            annualSavings.forEach(el => el.classList.remove('hidden'));
+        } else {
+            // Show monthly pricing
+            monthlyPrices.forEach(el => el.classList.remove('hidden'));
+            annualPrices.forEach(el => el.classList.add('hidden'));
+            monthlyPeriods.forEach(el => el.classList.remove('hidden'));
+            annualPeriods.forEach(el => el.classList.add('hidden'));
+            annualSavings.forEach(el => el.classList.add('hidden'));
+        }
+        
+        // Update purchase button data attributes
+        document.querySelectorAll('.purchase-btn').forEach(btn => {
+            const plan = btn.dataset.plan;
+            const monthlyPrice = btn.dataset.monthlyPrice;
+            const annualPrice = btn.dataset.annualPrice;
+            
+            if (this.isAnnualBilling) {
+                btn.dataset.currentPrice = annualPrice;
+                btn.dataset.currentPeriod = 'annual';
+            } else {
+                btn.dataset.currentPrice = monthlyPrice;
+                btn.dataset.currentPeriod = 'monthly';
+            }
+        });
     }
     
     /**

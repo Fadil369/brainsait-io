@@ -203,14 +203,45 @@
                 <h2 id="store-title" class="section-title" data-en="Healthcare Solutions Store" data-ar="متجر حلول الرعاية الصحية">
                     Healthcare Solutions Store
                 </h2>
+                
+                <!-- Promotional Banner -->
+                <div class="promo-banner">
+                    <div class="promo-content">
+                        <span class="promo-icon">🎉</span>
+                        <div class="promo-text">
+                            <strong data-en="Limited Time Offer!" data-ar="عرض لفترة محدودة!">Limited Time Offer!</strong>
+                            <span data-en="Save up to 30% on annual plans - Valid until December 31st" data-ar="وفر حتى 30% على الخطط السنوية - ساري حتى 31 ديسمبر">Save up to 30% on annual plans - Valid until December 31st</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Billing Toggle -->
+                <div class="billing-toggle">
+                    <label class="toggle-label">
+                        <span data-en="Monthly" data-ar="شهري">Monthly</span>
+                        <input type="checkbox" id="billing-period" class="billing-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span data-en="Annual" data-ar="سنوي">Annual</span>
+                        <span class="discount-badge" data-en="Save 30%" data-ar="وفر 30%">Save 30%</span>
+                    </label>
+                </div>
+                
                 <div class="store-grid">
                     <div class="store-item">
                         <div class="store-item-header">
                             <h3 data-en="Basic Plan" data-ar="الخطة الأساسية">Basic Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">299</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">299</span>
+                                    <span class="amount annual-price hidden">2,099</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 3,588</span>
+                                    <span class="save-amount" data-en="Save SAR 1,489" data-ar="وفر 1,489 ريال">Save SAR 1,489</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -219,7 +250,7 @@
                             <li data-en="Email support" data-ar="دعم عبر البريد الإلكتروني">Email support</li>
                             <li data-en="Mobile app access" data-ar="الوصول لتطبيق الهاتف">Mobile app access</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="basic" data-en="Choose Plan" data-ar="اختر الخطة">
+                        <button class="btn btn-primary purchase-btn" data-plan="basic" data-monthly-price="299" data-annual-price="2099" data-en="Choose Plan" data-ar="اختر الخطة">
                             Choose Plan
                         </button>
                     </div>
@@ -229,9 +260,17 @@
                         <div class="store-item-header">
                             <h3 data-en="Professional Plan" data-ar="الخطة المهنية">Professional Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">599</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">599</span>
+                                    <span class="amount annual-price hidden">4,199</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 7,188</span>
+                                    <span class="save-amount" data-en="Save SAR 2,989" data-ar="وفر 2,989 ريال">Save SAR 2,989</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -241,7 +280,7 @@
                             <li data-en="API access" data-ar="الوصول للواجهة البرمجية">API access</li>
                             <li data-en="Custom integrations" data-ar="تكاملات مخصصة">Custom integrations</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="professional" data-en="Choose Plan" data-ar="اختر الخطة">
+                        <button class="btn btn-primary purchase-btn" data-plan="professional" data-monthly-price="599" data-annual-price="4199" data-en="Choose Plan" data-ar="اختر الخطة">
                             Choose Plan
                         </button>
                     </div>
@@ -250,9 +289,17 @@
                         <div class="store-item-header">
                             <h3 data-en="Enterprise Plan" data-ar="خطة المؤسسات">Enterprise Plan</h3>
                             <div class="price">
-                                <span class="currency">SAR</span>
-                                <span class="amount">1299</span>
-                                <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                                <div class="price-display">
+                                    <span class="currency">SAR</span>
+                                    <span class="amount monthly-price">1299</span>
+                                    <span class="amount annual-price hidden">9,099</span>
+                                    <span class="period monthly-period" data-en="/month" data-ar="/شهر">/month</span>
+                                    <span class="period annual-period hidden" data-en="/year" data-ar="/سنة">/year</span>
+                                </div>
+                                <div class="price-savings annual-savings hidden">
+                                    <span class="original-price">SAR 15,588</span>
+                                    <span class="save-amount" data-en="Save SAR 6,489" data-ar="وفر 6,489 ريال">Save SAR 6,489</span>
+                                </div>
                             </div>
                         </div>
                         <ul class="features-list">
@@ -262,7 +309,7 @@
                             <li data-en="White-label solution" data-ar="حلول بعلامة تجارية مخصصة">White-label solution</li>
                             <li data-en="Custom development" data-ar="تطوير مخصص">Custom development</li>
                         </ul>
-                        <button class="btn btn-primary purchase-btn" data-plan="enterprise" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
+                        <button class="btn btn-primary purchase-btn" data-plan="enterprise" data-monthly-price="1299" data-annual-price="9099" data-en="Contact Sales" data-ar="اتصل بالمبيعات">
                             Contact Sales
                         </button>
                     </div>
