@@ -1483,3 +1483,439 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+// Partnership Ecosystem Extensions
+class PartnershipCalculator {
+    constructor() {
+        this.exchangeRates = {
+            USD: 3.75, // SAR to USD
+            EUR: 4.10  // SAR to EUR
+        };
+        
+        this.pricingData = {
+            'basic-consulting': {
+                hourly: 375,
+                daily: 1250,
+                weekly: 6250,
+                monthly: 2500,
+                annual: 27500
+            },
+            'advanced-support': {
+                hourly: 675,
+                daily: 3750,
+                weekly: 18750,
+                monthly: 7500,
+                annual: 82500
+            },
+            'enterprise-solution': {
+                hourly: 1250,
+                daily: 8500,
+                weekly: 42500,
+                monthly: 25000,
+                annual: 275000
+            },
+            'healthcare-ai': {
+                hourly: 950,
+                daily: 6750,
+                weekly: 28500,
+                monthly: 12500,
+                annual: 135000
+            }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.setupCalculator();
+        this.setupPartnershipButtons();
+        this.setupPricingCalculatorButtons();
+    }
+    
+    setupCalculator() {
+        const serviceSelect = document.getElementById('service-type');
+        const durationSelect = document.getElementById('duration-type');
+        const quantityInput = document.getElementById('quantity');
+        const currencySelect = document.getElementById('currency');
+        const proceedBtn = document.getElementById('proceed-to-payment');
+        
+        if (serviceSelect && durationSelect && quantityInput && currencySelect) {
+            [serviceSelect, durationSelect, quantityInput, currencySelect].forEach(element => {
+                element.addEventListener('change', () => this.calculatePrice());
+            });
+            
+            // Initial calculation
+            this.calculatePrice();
+        }
+        
+        if (proceedBtn) {
+            proceedBtn.addEventListener('click', () => this.proceedToPayment());
+        }
+    }
+    
+    setupPartnershipButtons() {
+        document.querySelectorAll('.partnership-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.handlePartnershipClick(e));
+        });
+    }
+    
+    setupPricingCalculatorButtons() {
+        document.querySelectorAll('.pricing-calc-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.handlePricingCalculatorClick(e));
+        });
+    }
+    
+    calculatePrice() {
+        const serviceType = document.getElementById('service-type')?.value;
+        const durationType = document.getElementById('duration-type')?.value;
+        const quantity = parseInt(document.getElementById('quantity')?.value) || 1;
+        const currency = document.getElementById('currency')?.value || 'SAR';
+        
+        if (!serviceType || !durationType || !this.pricingData[serviceType]) {
+            return;
+        }
+        
+        const baseRate = this.pricingData[serviceType][durationType];
+        const basePrice = baseRate * quantity;
+        
+        // Calculate volume discount
+        const volumeDiscount = this.calculateVolumeDiscount(quantity);
+        const discountAmount = basePrice * (volumeDiscount / 100);
+        const discountedPrice = basePrice - discountAmount;
+        
+        // Calculate VAT (15%)
+        const vatAmount = discountedPrice * 0.15;
+        const totalPrice = discountedPrice + vatAmount;
+        
+        // Convert currency if needed
+        const finalPrice = this.convertCurrency(totalPrice, currency);
+        const finalVat = this.convertCurrency(vatAmount, currency);
+        const finalBase = this.convertCurrency(basePrice, currency);
+        
+        // Update display
+        this.updatePriceDisplay(finalBase, volumeDiscount, finalVat, finalPrice, currency);
+        
+        // Calculate and show savings
+        if (volumeDiscount > 0) {
+            const savings = this.convertCurrency(discountAmount, currency);
+            this.showSavings(savings, currency);
+        } else {
+            this.hideSavings();
+        }
+        
+        // Update ROI estimation
+        this.updateROIEstimation(durationType);
+    }
+    
+    calculateVolumeDiscount(quantity) {
+        if (quantity >= 100) return 25;
+        if (quantity >= 50) return 20;
+        if (quantity >= 20) return 15;
+        if (quantity >= 10) return 10;
+        if (quantity >= 5) return 5;
+        return 0;
+    }
+    
+    convertCurrency(amount, targetCurrency) {
+        if (targetCurrency === 'SAR') return amount;
+        return amount / this.exchangeRates[targetCurrency];
+    }
+    
+    formatCurrency(amount, currency) {
+        const formattedAmount = new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(Math.round(amount));
+        
+        return `${currency} ${formattedAmount}`;
+    }
+    
+    updatePriceDisplay(basePrice, volumeDiscount, vatAmount, totalPrice, currency) {
+        const basePriceEl = document.getElementById('base-price');
+        const volumeDiscountEl = document.getElementById('volume-discount');
+        const vatAmountEl = document.getElementById('vat-amount');
+        const totalPriceEl = document.getElementById('total-price');
+        const volumeDiscountSection = document.getElementById('volume-discount-section');
+        
+        if (basePriceEl) basePriceEl.textContent = this.formatCurrency(basePrice, currency);
+        if (vatAmountEl) vatAmountEl.textContent = this.formatCurrency(vatAmount, currency);
+        if (totalPriceEl) totalPriceEl.textContent = this.formatCurrency(totalPrice, currency);
+        
+        if (volumeDiscount > 0) {
+            if (volumeDiscountEl) volumeDiscountEl.textContent = `${volumeDiscount}%`;
+            if (volumeDiscountSection) volumeDiscountSection.style.display = 'block';
+        } else {
+            if (volumeDiscountSection) volumeDiscountSection.style.display = 'none';
+        }
+    }
+    
+    showSavings(savings, currency) {
+        const savingsSection = document.getElementById('savings-indicator');
+        const savingsAmount = document.getElementById('savings-amount');
+        
+        if (savingsSection && savingsAmount) {
+            savingsAmount.textContent = this.formatCurrency(savings, currency);
+            savingsSection.style.display = 'block';
+        }
+    }
+    
+    hideSavings() {
+        const savingsSection = document.getElementById('savings-indicator');
+        if (savingsSection) {
+            savingsSection.style.display = 'none';
+        }
+    }
+    
+    updateROIEstimation(durationType) {
+        const expectedROI = document.getElementById('expected-roi');
+        const paybackPeriod = document.getElementById('payback-period');
+        
+        const roiData = {
+            hourly: { roi: '150%', payback: '3 months' },
+            daily: { roi: '200%', payback: '4 months' },
+            weekly: { roi: '250%', payback: '5 months' },
+            monthly: { roi: '300%', payback: '6 months' },
+            annual: { roi: '400%', payback: '8 months' }
+        };
+        
+        const data = roiData[durationType] || roiData.monthly;
+        
+        if (expectedROI) expectedROI.textContent = data.roi;
+        if (paybackPeriod) paybackPeriod.textContent = data.payback;
+    }
+    
+    handlePartnershipClick(e) {
+        e.preventDefault();
+        const button = e.target;
+        const partnership = button.dataset.partnership;
+        const amount = button.dataset.amount;
+        const type = button.dataset.type;
+        
+        // Create partnership application modal
+        this.showPartnershipModal(partnership, amount, type);
+    }
+    
+    handlePricingCalculatorClick(e) {
+        e.preventDefault();
+        const button = e.target;
+        const type = button.dataset.type;
+        
+        // Scroll to main pricing calculator and pre-fill values
+        this.scrollToCalculator(type);
+    }
+    
+    showPartnershipModal(partnership, amount, type) {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 data-en="Partnership Application" data-ar="طلب شراكة">Partnership Application</h3>
+                    <button class="modal-close" aria-label="Close partnership modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="partnership-details">
+                        <h4>Partnership Details:</h4>
+                        <p><strong>Type:</strong> ${partnership}</p>
+                        <p><strong>Investment:</strong> SAR ${new Intl.NumberFormat().format(amount)}</p>
+                    </div>
+                    
+                    <form class="partnership-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="partner-name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                                <input type="text" id="partner-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="partner-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                                <input type="email" id="partner-email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="partner-phone" data-en="Phone" data-ar="الهاتف">Phone</label>
+                                <input type="tel" id="partner-phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="partner-company" data-en="Company/Organization" data-ar="الشركة/المنظمة">Company/Organization</label>
+                                <input type="text" id="partner-company" name="company">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="partner-experience" data-en="Relevant Experience" data-ar="الخبرة ذات الصلة">Relevant Experience</label>
+                            <textarea id="partner-experience" name="experience" rows="3" placeholder="Tell us about your background and experience..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="partner-motivation" data-en="Why are you interested in this partnership?" data-ar="لماذا أنت مهتم بهذه الشراكة؟">Why are you interested in this partnership?</label>
+                            <textarea id="partner-motivation" name="motivation" rows="3" placeholder="Describe your motivation and goals..."></textarea>
+                        </div>
+                        
+                        <div class="payment-preference">
+                            <h5 data-en="Preferred Payment Structure:" data-ar="هيكل الدفع المفضل:">Preferred Payment Structure:</h5>
+                            <div class="payment-options">
+                                <label class="payment-option-label">
+                                    <input type="radio" name="payment_structure" value="lump_sum" checked>
+                                    <span data-en="Lump Sum (8% discount)" data-ar="دفعة واحدة (خصم 8%)">Lump Sum (8% discount)</span>
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="payment_structure" value="quarterly">
+                                    <span data-en="Quarterly Payments" data-ar="دفعات ربع سنوية">Quarterly Payments</span>
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="payment_structure" value="annual">
+                                    <span data-en="Annual Installments" data-ar="أقساط سنوية">Annual Installments</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full" data-en="Submit Application" data-ar="تقديم الطلب">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        window.brainSAIT.openModal(modal);
+        
+        // Handle form submission
+        modal.querySelector('.partnership-form').addEventListener('submit', (e) => {
+            this.handlePartnershipSubmission(e, modal);
+        });
+        
+        // Handle modal close
+        modal.querySelector('.modal-close').addEventListener('click', () => {
+            window.brainSAIT.closeModal(modal);
+            document.body.removeChild(modal);
+        });
+        
+        // Update text content for current language
+        window.brainSAIT.updateTextContent();
+    }
+    
+    handlePartnershipSubmission(e, modal) {
+        e.preventDefault();
+        
+        window.brainSAIT.showLoading();
+        
+        // Simulate form submission
+        setTimeout(() => {
+            window.brainSAIT.hideLoading();
+            window.brainSAIT.closeModal(modal);
+            document.body.removeChild(modal);
+            
+            const message = window.brainSAIT.getText(
+                'Partnership application submitted successfully! Our team will review your application and contact you within 2-3 business days.',
+                'تم تقديم طلب الشراكة بنجاح! سيقوم فريقنا بمراجعة طلبك والتواصل معك خلال 2-3 أيام عمل.'
+            );
+            
+            window.brainSAIT.showNotification(message, 'success');
+        }, 2000);
+    }
+    
+    scrollToCalculator(type) {
+        const calculatorSection = document.querySelector('.pricing-calculator-section');
+        if (calculatorSection) {
+            calculatorSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Pre-fill calculator based on type
+            this.prefillCalculator(type);
+        }
+    }
+    
+    prefillCalculator(type) {
+        const serviceSelect = document.getElementById('service-type');
+        const durationSelect = document.getElementById('duration-type');
+        
+        if (type.includes('research')) {
+            if (serviceSelect) serviceSelect.value = 'advanced-support';
+            if (type.includes('session')) {
+                if (durationSelect) durationSelect.value = 'hourly';
+            } else if (type.includes('monthly')) {
+                if (durationSelect) durationSelect.value = 'monthly';
+            } else if (type.includes('quarterly')) {
+                if (durationSelect) durationSelect.value = 'monthly';
+                const quantityInput = document.getElementById('quantity');
+                if (quantityInput) quantityInput.value = '3';
+            } else if (type.includes('annual')) {
+                if (durationSelect) durationSelect.value = 'annual';
+            }
+        }
+        
+        // Trigger calculation
+        this.calculatePrice();
+    }
+    
+    proceedToPayment() {
+        const serviceType = document.getElementById('service-type')?.value;
+        const durationType = document.getElementById('duration-type')?.value;
+        const quantity = parseInt(document.getElementById('quantity')?.value) || 1;
+        const totalPrice = document.getElementById('total-price')?.textContent;
+        
+        if (!serviceType || !durationType) {
+            window.brainSAIT.showNotification('Please select service type and duration', 'warning');
+            return;
+        }
+        
+        // Create payment plan object
+        const customPlan = {
+            id: 'custom-partnership',
+            name: `${serviceType} - ${durationType} (${quantity} ${durationType === 'hourly' ? 'hours' : durationType.slice(0, -2)}s)`,
+            price: totalPrice.replace(/[^\d]/g, ''),
+            period: durationType,
+            originalButton: document.getElementById('proceed-to-payment')
+        };
+        
+        // Store selected plan and show payment modal
+        window.brainSAIT.selectedPlan = customPlan;
+        window.brainSAIT.updatePaymentModal(customPlan);
+        window.brainSAIT.showModal(window.brainSAIT.paymentModal);
+    }
+}
+
+// Initialize Partnership Calculator when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.partnershipCalculator = new PartnershipCalculator();
+});
+
+// Exchange rate updater (simulated)
+class ExchangeRateUpdater {
+    constructor() {
+        this.updateInterval = 300000; // 5 minutes
+        this.init();
+    }
+    
+    init() {
+        this.updateRates();
+        setInterval(() => this.updateRates(), this.updateInterval);
+    }
+    
+    async updateRates() {
+        // In real implementation, fetch from actual API
+        // For demo, simulate rate fluctuations
+        const baseRates = { USD: 3.75, EUR: 4.10 };
+        const fluctuation = 0.02; // 2% max fluctuation
+        
+        Object.keys(baseRates).forEach(currency => {
+            const rate = baseRates[currency];
+            const change = (Math.random() - 0.5) * 2 * fluctuation;
+            const newRate = rate * (1 + change);
+            
+            if (window.partnershipCalculator) {
+                window.partnershipCalculator.exchangeRates[currency] = newRate;
+            }
+        });
+        
+        // Recalculate if calculator is active
+        if (window.partnershipCalculator && document.getElementById('service-type')) {
+            window.partnershipCalculator.calculatePrice();
+        }
+    }
+}
+
+// Initialize Exchange Rate Updater
+document.addEventListener('DOMContentLoaded', () => {
+    window.exchangeRateUpdater = new ExchangeRateUpdater();
+});
