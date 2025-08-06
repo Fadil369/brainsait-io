@@ -25,6 +25,7 @@ class BrainSAIT {
         this.setupBillingToggle();
         this.setupAccessibility();
         this.loadUserPreferences();
+        this.checkDemoAccess();
     }
     
     /**
@@ -50,6 +51,16 @@ class BrainSAIT {
         // Purchase buttons
         document.querySelectorAll('.purchase-btn').forEach(btn => {
             btn.addEventListener('click', (e) => this.handlePurchaseClick(e));
+        });
+        
+        // Demo trial buttons
+        document.querySelectorAll('.demo-trial-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.handleDemoTrialClick(e));
+        });
+        
+        // Demo buttons (for services)
+        document.querySelectorAll('.demo-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.handleDemoClick(e));
         });
         
         // Modal close buttons
@@ -304,6 +315,28 @@ class BrainSAIT {
         }
     }
     
+    /**
+     * Open modal
+     */
+    openModal(modal) {
+        if (modal) {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Store the trigger element for focus management
+            modal.triggerElement = document.activeElement;
+            
+            // Focus the modal
+            modal.focus();
+        }
+    }
+    
+    /**
+     * Close modal
+     */
     closeModal(modal) {
         if (modal) {
             modal.classList.remove('active');
@@ -393,21 +426,6 @@ class BrainSAIT {
             planPriceElement.textContent = `SAR ${planDetails.price}${periodText}`;
         }
     }
-        
-        const info = planInfo[plan];
-        if (info) {
-            const planNameElement = this.paymentModal.querySelector('.plan-name');
-            const planPriceElement = this.paymentModal.querySelector('.plan-price');
-            
-            if (planNameElement) {
-                planNameElement.textContent = this.getText(info.name.en, info.name.ar);
-            }
-            
-            if (planPriceElement) {
-                planPriceElement.textContent = info.price;
-            }
-        }
-    }
     
     /**
      * Handle payment option selection
@@ -476,6 +494,246 @@ class BrainSAIT {
     }
     
     /**
+     * Handle demo trial button click
+     */
+    handleDemoTrialClick(e) {
+        e.preventDefault();
+        const button = e.currentTarget;
+        const product = button.dataset.product;
+        const url = button.dataset.url;
+        
+        this.showLoading();
+        
+        // Simulate demo access generation
+        setTimeout(() => {
+            this.hideLoading();
+            this.grantDemoAccess(product, url);
+        }, 1500);
+    }
+    
+    /**
+     * Handle demo button click for services
+     */
+    handleDemoClick(e) {
+        e.preventDefault();
+        const button = e.currentTarget;
+        const service = button.dataset.service;
+        
+        this.showDemoRequestModal(service);
+    }
+    
+    /**
+     * Grant 1-day demo access
+     */
+    grantDemoAccess(product, url) {
+        // Store demo access in localStorage with 24-hour expiry
+        const demoAccess = {
+            product: product,
+            url: url,
+            grantedAt: Date.now(),
+            expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+        };
+        
+        // Store in localStorage
+        localStorage.setItem(`demo_${product}`, JSON.stringify(demoAccess));
+        
+        // Show success message
+        const message = this.getText(
+            `Demo access granted! You have 24 hours to explore ${product}. Click below to access.`,
+            `تم منح وصول التجربة! لديك 24 ساعة لاستكشاف ${product}. انقر أدناه للوصول.`
+        );
+        
+        this.showDemoAccessModal(product, url, message);
+    }
+    
+    /**
+     * Show demo access modal
+     */
+    showDemoAccessModal(product, url, message) {
+        // Create demo access modal
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 data-en="Demo Access Granted" data-ar="تم منح وصول التجربة">Demo Access Granted</h3>
+                    <button class="modal-close" aria-label="Close demo modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="demo-success">
+                        <div class="success-icon">🎉</div>
+                        <p>${message}</p>
+                        <div class="demo-timer">
+                            <span class="timer-label" data-en="Time remaining:" data-ar="الوقت المتبقي:">Time remaining:</span>
+                            <span class="timer-display">23:59:59</span>
+                        </div>
+                        <div class="demo-actions">
+                            <a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-en="Access Demo" data-ar="الوصول للتجربة">Access Demo</a>
+                            <button class="btn btn-secondary modal-close" data-en="Close" data-ar="إغلاق">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        this.openModal(modal);
+        
+        // Start countdown timer
+        this.startDemoTimer(modal.querySelector('.timer-display'), product);
+        
+        // Add close event
+        modal.querySelector('.modal-close').addEventListener('click', () => {
+            this.closeModal(modal);
+            document.body.removeChild(modal);
+        });
+    }
+    
+    /**
+     * Start demo countdown timer
+     */
+    startDemoTimer(timerElement, product) {
+        const updateTimer = () => {
+            const demoData = localStorage.getItem(`demo_${product}`);
+            if (!demoData) return;
+            
+            const demo = JSON.parse(demoData);
+            const now = Date.now();
+            const remaining = demo.expiresAt - now;
+            
+            if (remaining <= 0) {
+                // Demo expired
+                localStorage.removeItem(`demo_${product}`);
+                timerElement.textContent = this.getText('Expired', 'منتهي الصلاحية');
+                return;
+            }
+            
+            // Calculate hours, minutes, seconds
+            const hours = Math.floor(remaining / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            
+            timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        };
+        
+        updateTimer();
+        const interval = setInterval(updateTimer, 1000);
+        
+        // Store interval ID to clean up later
+        setTimeout(() => clearInterval(interval), 24 * 60 * 60 * 1000);
+    }
+    
+    /**
+     * Show demo request modal for services
+     */
+    showDemoRequestModal(service) {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 data-en="Request Demo" data-ar="طلب عرض توضيحي">Request Demo</h3>
+                    <button class="modal-close" aria-label="Close demo request modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="demo-request-form">
+                        <div class="form-group">
+                            <label for="demo-name" data-en="Name" data-ar="الاسم">Name</label>
+                            <input type="text" id="demo-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                            <input type="email" id="demo-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-company" data-en="Company" data-ar="الشركة">Company</label>
+                            <input type="text" id="demo-company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-message" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="demo-message" name="message" rows="3" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-en="Request Demo" data-ar="طلب عرض توضيحي">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        this.openModal(modal);
+        
+        // Handle form submission
+        modal.querySelector('.demo-request-form').addEventListener('submit', (e) => {
+            this.handleDemoRequest(e, service, modal);
+        });
+        
+        // Add close event
+        modal.querySelector('.modal-close').addEventListener('click', () => {
+            this.closeModal(modal);
+            document.body.removeChild(modal);
+        });
+    }
+    
+    /**
+     * Handle demo request submission
+     */
+    handleDemoRequest(e, service, modal) {
+        e.preventDefault();
+        
+        this.showLoading();
+        
+        // Simulate demo request processing
+        setTimeout(() => {
+            this.hideLoading();
+            this.closeModal(modal);
+            document.body.removeChild(modal);
+            
+            const message = this.getText(
+                'Demo request submitted successfully! We will contact you within 24 hours.',
+                'تم تقديم طلب العرض التوضيحي بنجاح! سنتواصل معك خلال 24 ساعة.'
+            );
+            
+            this.showNotification(message, 'success');
+        }, 2000);
+    }
+    
+    /**
+     * Check and manage demo access on page load
+     */
+    checkDemoAccess() {
+        const demoKeys = Object.keys(localStorage).filter(key => key.startsWith('demo_'));
+        
+        demoKeys.forEach(key => {
+            const demoData = localStorage.getItem(key);
+            if (demoData) {
+                const demo = JSON.parse(demoData);
+                if (Date.now() > demo.expiresAt) {
+                    // Demo expired, remove it
+                    localStorage.removeItem(key);
+                } else {
+                    // Demo still active, could show indicator
+                    this.showActiveDemoIndicator(demo);
+                }
+            }
+        });
+    }
+    
+    /**
+     * Show active demo indicator
+     */
+    showActiveDemoIndicator(demo) {
+        // Add visual indicator for active demos
+        const product = demo.product;
+        const button = document.querySelector(`[data-product="${product}"] .demo-trial-btn`);
+        
+        if (button) {
+            button.textContent = this.getText('Demo Active', 'التجربة نشطة');
+            button.classList.add('demo-active');
+            button.onclick = () => window.open(demo.url, '_blank');
+        }
+    }
+    
+    /**
      * Show loading overlay
      */
     showLoading() {
@@ -493,6 +751,44 @@ class BrainSAIT {
             this.loadingOverlay.classList.remove('active');
             this.loadingOverlay.setAttribute('aria-hidden', 'true');
         }
+    }
+    
+    /**
+     * Show notification message
+     */
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <p>${message}</p>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Trigger animation
+        setTimeout(() => notification.classList.add('show'), 100);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 5000);
+        
+        // Click to dismiss
+        notification.addEventListener('click', () => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        });
     }
     
     /**
@@ -640,49 +936,41 @@ class BrainSAIT {
     }
     
     /**
-     * Show notification
+     * Show notification message
      */
     showNotification(message, type = 'info') {
-        // Create notification element
         const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.textContent = message;
-        notification.setAttribute('role', 'alert');
-        
-        // Add styles
-        Object.assign(notification.style, {
-            position: 'fixed',
-            top: '20px',
-            right: this.isRTL ? 'auto' : '20px',
-            left: this.isRTL ? '20px' : 'auto',
-            padding: '15px 20px',
-            backgroundColor: type === 'success' ? '#10b981' : '#2563eb',
-            color: 'white',
-            borderRadius: '8px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            zIndex: '9999',
-            maxWidth: '400px',
-            transform: 'translateY(-100%)',
-            opacity: '0',
-            transition: 'all 0.3s ease'
-        });
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <p>${message}</p>
+            </div>
+        `;
         
         document.body.appendChild(notification);
         
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateY(0)';
-            notification.style.opacity = '1';
-        }, 100);
+        // Trigger animation
+        setTimeout(() => notification.classList.add('show'), 100);
         
-        // Remove after 5 seconds
+        // Auto remove after 5 seconds
         setTimeout(() => {
-            notification.style.transform = 'translateY(-100%)';
-            notification.style.opacity = '0';
+            notification.classList.add('hide');
             setTimeout(() => {
-                document.body.removeChild(notification);
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
             }, 300);
         }, 5000);
+        
+        // Click to dismiss
+        notification.addEventListener('click', () => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        });
     }
     
     /**
@@ -1049,52 +1337,6 @@ class BrainSAIT {
             buttonText.style.opacity = '1';
             spinner.classList.add('hidden');
         }
-    }
-    
-    /**
-     * Show notification to user
-     */
-    showNotification(message, type = 'info') {
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.textContent = message;
-        
-        // Style the notification
-        Object.assign(notification.style, {
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            padding: '16px 24px',
-            borderRadius: '8px',
-            backgroundColor: type === 'success' ? '#10b981' : 
-                           type === 'error' ? '#ef4444' : 
-                           type === 'warning' ? '#f59e0b' : '#3b82f6',
-            color: 'white',
-            fontWeight: '500',
-            zIndex: '10000',
-            maxWidth: '400px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-            transform: 'translateX(100%)',
-            transition: 'transform 0.3s ease-in-out'
-        });
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Remove after delay
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }, 5000);
     }
     
     /**
