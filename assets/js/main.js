@@ -326,38 +326,73 @@ class BrainSAIT {
      */
     handlePurchaseClick(e) {
         e.preventDefault();
-        const plan = e.target.dataset.plan;
+        const button = e.target;
+        const plan = button.dataset.plan;
         
-        if (plan === 'enterprise') {
-            // Scroll to contact section for enterprise plan
+        if (plan === 'enterprise' || plan === 'ai-enterprise' || plan === 'analytics-professional') {
+            // Scroll to contact section for enterprise plans
             this.scrollToSection('contact');
             return;
         }
         
+        // Get plan details from button attributes
+        const currentPrice = this.isAnnualBilling ? button.dataset.annualPrice : button.dataset.monthlyPrice;
+        const period = this.isAnnualBilling ? 'annual' : 'monthly';
+        
+        // Store selected plan details
+        this.selectedPlan = {
+            id: plan,
+            name: this.getPlanDisplayName(plan),
+            price: currentPrice,
+            period: period,
+            originalButton: button
+        };
+        
         // Store trigger element for focus restoration
-        this.paymentModal.triggerElement = e.target;
+        this.paymentModal.triggerElement = button;
         
         // Update modal with plan information
-        this.updatePaymentModal(plan);
+        this.updatePaymentModal(this.selectedPlan);
         
         // Show payment modal
         this.showModal(this.paymentModal);
     }
     
     /**
+     * Get display name for plan
+     */
+    getPlanDisplayName(planId) {
+        const planNames = {
+            'basic': this.getText('Basic Plan', 'الخطة الأساسية'),
+            'professional': this.getText('Professional Plan', 'الخطة المهنية'),
+            'ai-starter': this.getText('AI Diagnosis Starter', 'التشخيص الذكي - المبتدئ'),
+            'ai-professional': this.getText('AI Diagnosis Professional', 'التشخيص الذكي - المهني'),
+            'portal-basic': this.getText('Patient Portal Basic', 'بوابة المرضى - أساسي'),
+            'portal-professional': this.getText('Patient Portal Professional', 'بوابة المرضى - مهني'),
+            'analytics-standard': this.getText('Healthcare Analytics Standard', 'تحليلات الرعاية الصحية - قياسي')
+        };
+        
+        return planNames[planId] || planId;
+    }
+    
+    /**
      * Update payment modal with plan information
      */
-    updatePaymentModal(plan) {
-        const planInfo = {
-            'basic': {
-                name: { en: 'Basic Plan', ar: 'الخطة الأساسية' },
-                price: 'SAR 299/month'
-            },
-            'professional': {
-                name: { en: 'Professional Plan', ar: 'الخطة المهنية' },
-                price: 'SAR 599/month'
-            }
-        };
+    updatePaymentModal(planDetails) {
+        const planNameElement = this.paymentModal.querySelector('.plan-name');
+        const planPriceElement = this.paymentModal.querySelector('.plan-price');
+        
+        if (planNameElement) {
+            planNameElement.textContent = planDetails.name;
+        }
+        
+        if (planPriceElement) {
+            const periodText = planDetails.period === 'annual' ? 
+                this.getText('/year', '/سنة') : 
+                this.getText('/month', '/شهر');
+            planPriceElement.textContent = `SAR ${planDetails.price}${periodText}`;
+        }
+    }
         
         const info = planInfo[plan];
         if (info) {
@@ -738,6 +773,328 @@ class BrainSAIT {
         // Initialize payment providers when needed
         this.stripeInitialized = false;
         this.paypalInitialized = false;
+        this.stripe = null;
+        this.elements = null;
+        this.cardElement = null;
+        
+        // Load Stripe script
+        this.loadStripeScript();
+    }
+    
+    /**
+     * Load Stripe script dynamically
+     */
+    loadStripeScript() {
+        if (window.Stripe) {
+            this.initializeStripe();
+            return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = 'https://js.stripe.com/v3/';
+        script.onload = () => this.initializeStripe();
+        document.head.appendChild(script);
+    }
+    
+    /**
+     * Initialize Stripe
+     */
+    initializeStripe() {
+        // Use demo/test key for development
+        this.stripe = Stripe('pk_test_demo_key_for_development_only');
+        this.stripeInitialized = true;
+        this.setupStripeElements();
+    }
+    
+    /**
+     * Setup Stripe Elements
+     */
+    setupStripeElements() {
+        if (!this.stripe) return;
+        
+        this.elements = this.stripe.elements({
+            locale: this.currentLanguage === 'ar' ? 'ar' : 'en'
+        });
+        
+        // Create card element
+        this.cardElement = this.elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#424770',
+                    '::placeholder': {
+                        color: '#aab7c4',
+                    },
+                },
+                invalid: {
+                    color: '#9e2146',
+                },
+            },
+        });
+    }
+    
+    /**
+     * Handle payment option selection
+     */
+    handlePaymentOption(event) {
+        const method = event.currentTarget.dataset.method;
+        const planDetails = this.getSelectedPlanDetails();
+        
+        this.closeModal(document.getElementById('payment-modal'));
+        
+        switch (method) {
+            case 'stripe':
+                this.handleStripePayment(planDetails);
+                break;
+            case 'paypal':
+                this.handlePayPalPayment(planDetails);
+                break;
+            case 'mada':
+            case 'stcpay':
+            case 'sadad':
+            case 'bank-transfer':
+                this.handleLocalPayment(method, planDetails);
+                break;
+            default:
+                console.error('Unknown payment method:', method);
+        }
+    }
+    
+    /**
+     * Handle Stripe payment
+     */
+    handleStripePayment(planDetails) {
+        if (!this.stripeInitialized) {
+            this.showNotification('Payment system is loading, please try again.', 'warning');
+            return;
+        }
+        
+        // Update the Stripe payment modal
+        this.updateStripeModal(planDetails);
+        this.openModal(document.getElementById('stripe-payment-modal'));
+        
+        // Mount card element if not already mounted
+        if (this.cardElement && !this.cardElement._mounted) {
+            this.cardElement.mount('#card-element');
+            this.cardElement._mounted = true;
+        }
+        
+        // Setup form submission
+        this.setupStripeFormHandler(planDetails);
+    }
+    
+    /**
+     * Update Stripe payment modal with plan details
+     */
+    updateStripeModal(planDetails) {
+        document.getElementById('summary-plan-name').textContent = planDetails.name;
+        document.getElementById('summary-amount').textContent = `SAR ${planDetails.price}`;
+    }
+    
+    /**
+     * Setup Stripe form submission handler
+     */
+    setupStripeFormHandler(planDetails) {
+        const form = document.getElementById('stripe-payment-form');
+        const submitButton = document.getElementById('submit-payment');
+        
+        form.onsubmit = async (event) => {
+            event.preventDefault();
+            this.processStripePayment(planDetails, submitButton);
+        };
+    }
+    
+    /**
+     * Process Stripe payment
+     */
+    async processStripePayment(planDetails, submitButton) {
+        this.setLoadingState(submitButton, true);
+        
+        try {
+            // Get billing details from form
+            const billingDetails = this.getBillingDetails();
+            
+            // For demo purposes, simulate payment processing
+            await this.simulatePaymentProcessing();
+            
+            // In a real implementation, you would:
+            // 1. Create payment intent on your server
+            // 2. Confirm payment with Stripe
+            // const {error, paymentIntent} = await this.stripe.confirmCardPayment(clientSecret, {
+            //     payment_method: {
+            //         card: this.cardElement,
+            //         billing_details: billingDetails,
+            //     }
+            // });
+            
+            this.handlePaymentSuccess(planDetails, 'stripe');
+            
+        } catch (error) {
+            this.handlePaymentError(error.message);
+        } finally {
+            this.setLoadingState(submitButton, false);
+        }
+    }
+    
+    /**
+     * Handle PayPal payment
+     */
+    handlePayPalPayment(planDetails) {
+        // For demo purposes, simulate PayPal redirect
+        this.showNotification('Redirecting to PayPal...', 'info');
+        
+        setTimeout(() => {
+            // In real implementation, you would redirect to PayPal
+            // window.location.href = paypalCheckoutUrl;
+            this.handlePaymentSuccess(planDetails, 'paypal');
+        }, 2000);
+    }
+    
+    /**
+     * Handle local payment methods
+     */
+    handleLocalPayment(method, planDetails) {
+        const methodNames = {
+            'mada': 'mada Card',
+            'stcpay': 'STC Pay',
+            'sadad': 'SADAD',
+            'bank-transfer': 'Bank Transfer'
+        };
+        
+        const methodName = methodNames[method] || method;
+        
+        this.showNotification(`Redirecting to ${methodName} payment gateway...`, 'info');
+        
+        setTimeout(() => {
+            // In real implementation, you would redirect to local payment gateway
+            this.handlePaymentSuccess(planDetails, method);
+        }, 2000);
+    }
+    
+    /**
+     * Get selected plan details
+     */
+    getSelectedPlanDetails() {
+        // This would be set when opening the payment modal
+        return this.selectedPlan || {
+            name: 'Professional Plan',
+            price: '599',
+            period: 'monthly'
+        };
+    }
+    
+    /**
+     * Get billing details from form
+     */
+    getBillingDetails() {
+        return {
+            name: document.getElementById('billing-name')?.value || '',
+            email: document.getElementById('billing-email')?.value || '',
+            address: {
+                line1: document.getElementById('billing-address')?.value || '',
+                city: document.getElementById('billing-city')?.value || '',
+                country: 'SA',
+            },
+        };
+    }
+    
+    /**
+     * Simulate payment processing delay
+     */
+    simulatePaymentProcessing() {
+        return new Promise(resolve => setTimeout(resolve, 2000));
+    }
+    
+    /**
+     * Handle successful payment
+     */
+    handlePaymentSuccess(planDetails, method) {
+        this.closeModal(document.getElementById('stripe-payment-modal'));
+        this.showNotification(
+            `Payment successful! Welcome to ${planDetails.name}. You will receive a confirmation email shortly.`,
+            'success'
+        );
+        
+        // In real implementation, you would:
+        // 1. Redirect to success page
+        // 2. Update user account
+        // 3. Send confirmation email
+        
+        setTimeout(() => {
+            // Redirect to dashboard or success page
+            console.log('Redirect to dashboard/success page');
+        }, 3000);
+    }
+    
+    /**
+     * Handle payment error
+     */
+    handlePaymentError(errorMessage) {
+        this.showNotification(`Payment failed: ${errorMessage}`, 'error');
+    }
+    
+    /**
+     * Set loading state for button
+     */
+    setLoadingState(button, isLoading) {
+        const buttonText = button.querySelector('#button-text');
+        const spinner = button.querySelector('#spinner');
+        
+        if (isLoading) {
+            button.disabled = true;
+            buttonText.style.opacity = '0';
+            spinner.classList.remove('hidden');
+        } else {
+            button.disabled = false;
+            buttonText.style.opacity = '1';
+            spinner.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Show notification to user
+     */
+    showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        
+        // Style the notification
+        Object.assign(notification.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '16px 24px',
+            borderRadius: '8px',
+            backgroundColor: type === 'success' ? '#10b981' : 
+                           type === 'error' ? '#ef4444' : 
+                           type === 'warning' ? '#f59e0b' : '#3b82f6',
+            color: 'white',
+            fontWeight: '500',
+            zIndex: '10000',
+            maxWidth: '400px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            transform: 'translateX(100%)',
+            transition: 'transform 0.3s ease-in-out'
+        });
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after delay
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 5000);
     }
     
     /**

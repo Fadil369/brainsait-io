@@ -418,16 +418,6 @@
                 <button class="modal-close" aria-label="Close payment modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="payment-options">
-                    <button class="payment-option" data-method="stripe">
-                        <img src="./assets/images/stripe-logo.svg" alt="Stripe">
-                        <span data-en="Pay with Stripe" data-ar="ادفع باستخدام سترايب">Pay with Stripe</span>
-                    </button>
-                    <button class="payment-option" data-method="paypal">
-                        <img src="./assets/images/paypal-logo.svg" alt="PayPal">
-                        <span data-en="Pay with PayPal" data-ar="ادفع باستخدام بايبال">Pay with PayPal</span>
-                    </button>
-                </div>
                 <div class="selected-plan-info">
                     <h4 data-en="Selected Plan:" data-ar="الخطة المختارة:">Selected Plan:</h4>
                     <div class="plan-details">
@@ -435,6 +425,119 @@
                         <span class="plan-price"></span>
                     </div>
                 </div>
+                
+                <div class="payment-methods">
+                    <h4 data-en="International Payment Methods" data-ar="طرق الدفع الدولية">International Payment Methods</h4>
+                    <div class="payment-options">
+                        <button class="payment-option" data-method="stripe">
+                            <img src="./assets/images/stripe-logo.svg" alt="Stripe">
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="Credit/Debit Card" data-ar="بطاقة ائتمان/خصم">Credit/Debit Card</span>
+                                <span class="payment-desc" data-en="Visa, Mastercard, American Express" data-ar="فيزا، ماستركارد، أمريكان إكسبريس">Visa, Mastercard, American Express</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="paypal">
+                            <img src="./assets/images/paypal-logo.svg" alt="PayPal">
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="PayPal" data-ar="بايبال">PayPal</span>
+                                <span class="payment-desc" data-en="Pay with your PayPal account" data-ar="ادفع باستخدام حساب بايبال">Pay with your PayPal account</span>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <h4 data-en="Local Payment Methods (Saudi Arabia)" data-ar="طرق الدفع المحلية (المملكة العربية السعودية)">Local Payment Methods (Saudi Arabia)</h4>
+                    <div class="payment-options">
+                        <button class="payment-option" data-method="mada">
+                            <div class="payment-logo mada-logo">مدى</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="mada Card" data-ar="بطاقة مدى">mada Card</span>
+                                <span class="payment-desc" data-en="Saudi national debit card" data-ar="بطاقة الخصم الوطنية السعودية">Saudi national debit card</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="stcpay">
+                            <div class="payment-logo stc-logo">STC Pay</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="STC Pay" data-ar="STC Pay">STC Pay</span>
+                                <span class="payment-desc" data-en="Digital wallet solution" data-ar="حل المحفظة الرقمية">Digital wallet solution</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="sadad">
+                            <div class="payment-logo sadad-logo">SADAD</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="SADAD" data-ar="سداد">SADAD</span>
+                                <span class="payment-desc" data-en="Electronic bill payment" data-ar="دفع الفواتير الإلكترونية">Electronic bill payment</span>
+                            </div>
+                        </button>
+                        <button class="payment-option" data-method="bank-transfer">
+                            <div class="payment-logo bank-logo">🏦</div>
+                            <div class="payment-info">
+                                <span class="payment-title" data-en="Bank Transfer" data-ar="تحويل بنكي">Bank Transfer</span>
+                                <span class="payment-desc" data-en="Direct bank transfer" data-ar="تحويل بنكي مباشر">Direct bank transfer</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe Payment Form Modal -->
+    <div id="stripe-payment-modal" class="modal" role="dialog" aria-labelledby="stripe-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="stripe-modal-title" data-en="Enter Payment Details" data-ar="أدخل تفاصيل الدفع">Enter Payment Details</h3>
+                <button class="modal-close" aria-label="Close payment modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="stripe-payment-form">
+                    <div class="form-group">
+                        <label for="card-element" data-en="Card Information" data-ar="معلومات البطاقة">Card Information</label>
+                        <div id="card-element" class="stripe-card-element">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" class="error-message" role="alert"></div>
+                    </div>
+                    
+                    <div class="billing-details">
+                        <h4 data-en="Billing Details" data-ar="تفاصيل الفواتير">Billing Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billing-name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                                <input type="text" id="billing-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                                <input type="email" id="billing-email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="billing-address" data-en="Address" data-ar="العنوان">Address</label>
+                                <input type="text" id="billing-address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="billing-city" data-en="City" data-ar="المدينة">City</label>
+                                <input type="text" id="billing-city" name="city" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-summary">
+                        <div class="summary-row">
+                            <span data-en="Plan:" data-ar="الخطة:">Plan:</span>
+                            <span id="summary-plan-name"></span>
+                        </div>
+                        <div class="summary-row">
+                            <span data-en="Amount:" data-ar="المبلغ:">Amount:</span>
+                            <span id="summary-amount"></span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submit-payment" class="btn btn-primary btn-full">
+                        <span id="button-text" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</span>
+                        <div id="spinner" class="spinner hidden"></div>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

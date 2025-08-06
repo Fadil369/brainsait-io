@@ -1071,6 +1071,201 @@ section {
     }
 }
 
+/* Payment Integration Styles */
+.payment-methods h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-6) 0 var(--spacing-4) 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-2);
+}
+
+.payment-methods h4:first-child {
+    margin-top: 0;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    width: 100%;
+    padding: var(--spacing-4);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--background-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: var(--spacing-3);
+}
+
+.payment-option:hover {
+    border-color: var(--primary-color);
+    background-color: var(--surface-color);
+}
+
+.payment-option img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.payment-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white;
+}
+
+.mada-logo {
+    background-color: #1e5c8c;
+}
+
+.stc-logo {
+    background-color: #662d91;
+    font-size: var(--font-size-xs);
+}
+
+.sadad-logo {
+    background-color: #0056b3;
+}
+
+.bank-logo {
+    background-color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.payment-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-1);
+}
+
+.payment-desc {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* Stripe Payment Form */
+.stripe-card-element {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+}
+
+.billing-details {
+    margin: var(--spacing-6) 0;
+}
+
+.billing-details h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.payment-summary {
+    background-color: var(--surface-color);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-6) 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-2);
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+}
+
+.btn-full {
+    width: 100%;
+    position: relative;
+}
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile responsiveness for payment */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-option {
+        padding: var(--spacing-3);
+        gap: var(--spacing-3);
+    }
+    
+    .payment-logo {
+        width: 35px;
+        height: 35px;
+        font-size: var(--font-size-xs);
+    }
+}
+
 /* Contact Section */
 .contact {
     background-color: var(--surface-color);
